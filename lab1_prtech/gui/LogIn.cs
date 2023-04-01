@@ -12,11 +12,12 @@ namespace lab1_prtech
 {
     public partial class LogIn : Form
     {
+        string statusName;
         public LogIn()
         {
             InitializeComponent();
         }
-
+        
         private void register_Click(object sender, EventArgs e)
         {
             if (!DriverChoise.Checked && !ManagerChoise.Checked)
@@ -37,7 +38,7 @@ namespace lab1_prtech
         private void button2_Click(object sender, EventArgs e)
         {
            
-            string query = $"SELECT isAdmin FROM Stuff WHERE Login = '{textBox1.Text}' AND Password = '{textBox2.Text}'";
+            string query = $"SELECT isAdmin FROM Stuff WHERE Login = '{textBox1.Text}' AND Password = '{textBox2.Text}' AND Status = '{statusName}'";
             Database db = new Database();          
             SqlCommand command = new SqlCommand(query, db.getCon());
             db.open();                 
@@ -49,10 +50,10 @@ namespace lab1_prtech
             try
             {
                 DataRow row = dataTable.Rows[0];
-                string ad = row.ItemArray[0].ToString();
+                string selectedId = row.ItemArray[0].ToString();
                 if (dataTable != null)
                 {
-                    switch (ad)
+                    switch (selectedId)
                     {
                         case "True":
                             new AdminForm().Show();
@@ -79,6 +80,12 @@ namespace lab1_prtech
         private void LogIn_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void DriverChoise_CheckedChanged(object sender, EventArgs e)
+        {
+            var snd = sender as RadioButton;
+            statusName = snd.Text;
         }
     }
 }

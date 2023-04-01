@@ -49,6 +49,7 @@ namespace lab1_prtech
             this.DriverChoise.TabStop = true;
             this.DriverChoise.Text = "Driver";
             this.DriverChoise.UseVisualStyleBackColor = true;
+            this.DriverChoise.CheckedChanged += new System.EventHandler(this.DriverChoise_CheckedChanged);
             // 
             // ManagerChoise
             // 
@@ -60,6 +61,7 @@ namespace lab1_prtech
             this.ManagerChoise.TabStop = true;
             this.ManagerChoise.Text = "Manager";
             this.ManagerChoise.UseVisualStyleBackColor = true;
+            this.ManagerChoise.CheckedChanged += new System.EventHandler(this.DriverChoise_CheckedChanged);
             // 
             // label1
             // 
