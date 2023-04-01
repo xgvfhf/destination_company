@@ -38,26 +38,33 @@ namespace lab1_prtech
         {
            
             string query = $"SELECT isAdmin FROM Stuff WHERE Login = '{textBox1.Text}' AND Password = '{textBox2.Text}'";
-            Database db = new Database();
-            
-            
+            Database db = new Database();          
             SqlCommand command = new SqlCommand(query, db.getCon());
-            db.open();
-         
-            
+            db.open();                 
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(command);
             DataTable dataTable = new DataTable();
             sqlDataAdapter.Fill(dataTable);
-            // dataTable.Rows[0].ItemArray;
+            
             
             try
             {
                 DataRow row = dataTable.Rows[0];
+                string ad = row.ItemArray[0].ToString();
                 if (dataTable != null)
                 {
-                    Main m = new Main();             
-                    m.Show();
-                    
+                    switch (ad)
+                    {
+                        case "True":
+                            new AdminForm().Show();
+                            return;
+                        case "False":
+                            new SimpleManagerForm().Show();
+                            return;
+                        case "":
+                            new SimpleDriverForm().Show();
+                            return;
+                    }
+
                 }
             }
             catch(Exception)

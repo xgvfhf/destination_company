@@ -1,7 +1,7 @@
 ﻿
 namespace lab1_prtech
 {
-    partial class Main
+    partial class AdminForm
     {
         /// <summary>
         /// Required designer variable.
@@ -31,6 +31,8 @@ namespace lab1_prtech
         {
             this.desManagement = new System.Windows.Forms.TabControl();
             this.userManagment = new System.Windows.Forms.TabPage();
+            this.managerChoise = new System.Windows.Forms.RadioButton();
+            this.driverChoise = new System.Windows.Forms.RadioButton();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -51,15 +53,13 @@ namespace lab1_prtech
             this.Delete = new System.Windows.Forms.Button();
             this.Edit = new System.Windows.Forms.Button();
             this.Add = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.database = new System.Windows.Forms.DataGridView();
             this.carManagement = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.truckManagement = new System.Windows.Forms.TabPage();
-            this.driverChoise = new System.Windows.Forms.RadioButton();
-            this.managerChoise = new System.Windows.Forms.RadioButton();
             this.desManagement.SuspendLayout();
             this.userManagment.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.database)).BeginInit();
             this.SuspendLayout();
             // 
             // desManagement
@@ -98,7 +98,7 @@ namespace lab1_prtech
             this.userManagment.Controls.Add(this.Delete);
             this.userManagment.Controls.Add(this.Edit);
             this.userManagment.Controls.Add(this.Add);
-            this.userManagment.Controls.Add(this.dataGridView1);
+            this.userManagment.Controls.Add(this.database);
             this.userManagment.Location = new System.Drawing.Point(4, 25);
             this.userManagment.Name = "userManagment";
             this.userManagment.Padding = new System.Windows.Forms.Padding(3);
@@ -106,6 +106,30 @@ namespace lab1_prtech
             this.userManagment.TabIndex = 0;
             this.userManagment.Text = "User management";
             this.userManagment.UseVisualStyleBackColor = true;
+            // 
+            // managerChoise
+            // 
+            this.managerChoise.AutoSize = true;
+            this.managerChoise.Location = new System.Drawing.Point(601, 17);
+            this.managerChoise.Name = "managerChoise";
+            this.managerChoise.Size = new System.Drawing.Size(85, 21);
+            this.managerChoise.TabIndex = 22;
+            this.managerChoise.TabStop = true;
+            this.managerChoise.Text = "Manager";
+            this.managerChoise.UseVisualStyleBackColor = true;
+            this.managerChoise.CheckedChanged += new System.EventHandler(this.managerChoise_CheckedChanged);
+            // 
+            // driverChoise
+            // 
+            this.driverChoise.AutoSize = true;
+            this.driverChoise.Location = new System.Drawing.Point(466, 17);
+            this.driverChoise.Name = "driverChoise";
+            this.driverChoise.Size = new System.Drawing.Size(67, 21);
+            this.driverChoise.TabIndex = 21;
+            this.driverChoise.TabStop = true;
+            this.driverChoise.Text = "Driver";
+            this.driverChoise.UseVisualStyleBackColor = true;
+            this.driverChoise.CheckedChanged += new System.EventHandler(this.driverChoise_CheckedChanged);
             // 
             // label8
             // 
@@ -275,22 +299,23 @@ namespace lab1_prtech
             this.Add.UseVisualStyleBackColor = true;
             this.Add.Click += new System.EventHandler(this.Add_Click);
             // 
-            // dataGridView1
+            // database
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(17, 17);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(402, 386);
-            this.dataGridView1.TabIndex = 0;
+            this.database.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.database.Location = new System.Drawing.Point(17, 17);
+            this.database.Name = "database";
+            this.database.RowHeadersWidth = 51;
+            this.database.RowTemplate.Height = 24;
+            this.database.Size = new System.Drawing.Size(402, 386);
+            this.database.TabIndex = 0;
+            this.database.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.database_CellClick);
             // 
             // carManagement
             // 
             this.carManagement.Location = new System.Drawing.Point(4, 25);
             this.carManagement.Name = "carManagement";
             this.carManagement.Padding = new System.Windows.Forms.Padding(3);
-            this.carManagement.Size = new System.Drawing.Size(734, 369);
+            this.carManagement.Size = new System.Drawing.Size(773, 432);
             this.carManagement.TabIndex = 1;
             this.carManagement.Text = "Cargo management";
             this.carManagement.UseVisualStyleBackColor = true;
@@ -300,7 +325,7 @@ namespace lab1_prtech
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(734, 369);
+            this.tabPage3.Size = new System.Drawing.Size(773, 432);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Destination management";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -310,48 +335,24 @@ namespace lab1_prtech
             this.truckManagement.Location = new System.Drawing.Point(4, 25);
             this.truckManagement.Name = "truckManagement";
             this.truckManagement.Padding = new System.Windows.Forms.Padding(3);
-            this.truckManagement.Size = new System.Drawing.Size(734, 369);
+            this.truckManagement.Size = new System.Drawing.Size(773, 432);
             this.truckManagement.TabIndex = 3;
             this.truckManagement.Text = "Truck management";
             this.truckManagement.UseVisualStyleBackColor = true;
             // 
-            // driverChoise
-            // 
-            this.driverChoise.AutoSize = true;
-            this.driverChoise.Location = new System.Drawing.Point(466, 17);
-            this.driverChoise.Name = "driverChoise";
-            this.driverChoise.Size = new System.Drawing.Size(67, 21);
-            this.driverChoise.TabIndex = 21;
-            this.driverChoise.TabStop = true;
-            this.driverChoise.Text = "Driver";
-            this.driverChoise.UseVisualStyleBackColor = true;
-            this.driverChoise.CheckedChanged += new System.EventHandler(this.driverChoise_CheckedChanged);
-            // 
-            // managerChoise
-            // 
-            this.managerChoise.AutoSize = true;
-            this.managerChoise.Location = new System.Drawing.Point(601, 17);
-            this.managerChoise.Name = "managerChoise";
-            this.managerChoise.Size = new System.Drawing.Size(85, 21);
-            this.managerChoise.TabIndex = 22;
-            this.managerChoise.TabStop = true;
-            this.managerChoise.Text = "Manager";
-            this.managerChoise.UseVisualStyleBackColor = true;
-            this.managerChoise.CheckedChanged += new System.EventHandler(this.managerChoise_CheckedChanged);
-            // 
-            // Main
+            // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(827, 498);
             this.Controls.Add(this.desManagement);
-            this.Name = "Main";
-            this.Text = "Main";
+            this.Name = "AdminForm";
+            this.Text = "AdminForm";
             this.Load += new System.EventHandler(this.Main_Load);
             this.desManagement.ResumeLayout(false);
             this.userManagment.ResumeLayout(false);
             this.userManagment.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.database)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -381,7 +382,7 @@ namespace lab1_prtech
         private System.Windows.Forms.Button Delete;
         private System.Windows.Forms.Button Edit;
         private System.Windows.Forms.Button Add;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView database;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage truckManagement;
         private System.Windows.Forms.RadioButton managerChoise;
