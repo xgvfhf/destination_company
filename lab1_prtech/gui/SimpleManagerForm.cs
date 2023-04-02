@@ -16,5 +16,20 @@ namespace lab1_prtech
         {
             InitializeComponent();
         }
+
+        private void tabPage4_Click(object sender, EventArgs e)
+        {
+
+        }
+        //TabControl
+        private void tabPage3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SimpleManagerForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

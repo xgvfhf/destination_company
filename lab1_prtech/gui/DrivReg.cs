@@ -42,5 +42,24 @@ namespace lab1_prtech
         {
 
         }
+
+        private void driverLogin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            var txt = sender as TextBox;
+            char symb = e.KeyChar;
+            if (txt.Text.Length > 7 && symb != 8)
+            {
+                e.Handled = true;
+                MessageBox.Show("length of text can not be more then 8!");
+            }
+             else if ((txt.Name.Equals("DriverPhoneNum") || txt.Name.Equals("driverLicNum") || txt.Name.Equals("driverMedNum")) && !Char.IsDigit(symb) && symb != 8)
+             {
+                e.Handled = true;
+             }
+             else if ((txt.Name.Equals("driverName") || txt.Name.Equals("driverSurname"))&& Char.IsDigit(symb))
+             {
+                e.Handled = true;
+             }
+        }
     }
 }

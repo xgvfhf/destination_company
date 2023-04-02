@@ -7,5 +7,6 @@ namespace lab1_prtech
     class Cargo
     {
         public int Weight { get; set; }
+        public string Products { get; set; }
     }
 }

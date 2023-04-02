@@ -11,7 +11,8 @@ namespace lab1_prtech
         public string Year { get; set; }
         public string Odometr { get; set; }
         public string Fuel { get; set; }
-        public Driver Driver { get; set; }
+        public Driver RespDriver { get; set; }
+        public Manager RespManager { get; set; }
         public Cargo Cargo { get; set; }
         public Destination Destination { get; set; }
 

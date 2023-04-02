@@ -57,9 +57,25 @@ namespace lab1_prtech
             this.carManagement = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.truckManagement = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.desManagement.SuspendLayout();
             this.userManagment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.database)).BeginInit();
+            this.truckManagement.SuspendLayout();
             this.SuspendLayout();
             // 
             // desManagement
@@ -68,10 +84,10 @@ namespace lab1_prtech
             this.desManagement.Controls.Add(this.carManagement);
             this.desManagement.Controls.Add(this.tabPage3);
             this.desManagement.Controls.Add(this.truckManagement);
-            this.desManagement.Location = new System.Drawing.Point(25, 25);
+            this.desManagement.Location = new System.Drawing.Point(12, 59);
             this.desManagement.Name = "desManagement";
             this.desManagement.SelectedIndex = 0;
-            this.desManagement.Size = new System.Drawing.Size(781, 461);
+            this.desManagement.Size = new System.Drawing.Size(794, 427);
             this.desManagement.TabIndex = 0;
             // 
             // userManagment
@@ -102,7 +118,7 @@ namespace lab1_prtech
             this.userManagment.Location = new System.Drawing.Point(4, 25);
             this.userManagment.Name = "userManagment";
             this.userManagment.Padding = new System.Windows.Forms.Padding(3);
-            this.userManagment.Size = new System.Drawing.Size(773, 432);
+            this.userManagment.Size = new System.Drawing.Size(786, 398);
             this.userManagment.TabIndex = 0;
             this.userManagment.Text = "User management";
             this.userManagment.UseVisualStyleBackColor = true;
@@ -303,6 +319,7 @@ namespace lab1_prtech
             // 
             this.database.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.database.Location = new System.Drawing.Point(17, 17);
+            this.database.MultiSelect = false;
             this.database.Name = "database";
             this.database.RowHeadersWidth = 51;
             this.database.RowTemplate.Height = 24;
@@ -332,19 +349,159 @@ namespace lab1_prtech
             // 
             // truckManagement
             // 
+            this.truckManagement.Controls.Add(this.button4);
+            this.truckManagement.Controls.Add(this.button3);
+            this.truckManagement.Controls.Add(this.button2);
+            this.truckManagement.Controls.Add(this.label13);
+            this.truckManagement.Controls.Add(this.label12);
+            this.truckManagement.Controls.Add(this.label11);
+            this.truckManagement.Controls.Add(this.label10);
+            this.truckManagement.Controls.Add(this.label9);
+            this.truckManagement.Controls.Add(this.textBox13);
+            this.truckManagement.Controls.Add(this.textBox12);
+            this.truckManagement.Controls.Add(this.textBox11);
+            this.truckManagement.Controls.Add(this.textBox10);
+            this.truckManagement.Controls.Add(this.textBox9);
+            this.truckManagement.Controls.Add(this.listView1);
             this.truckManagement.Location = new System.Drawing.Point(4, 25);
             this.truckManagement.Name = "truckManagement";
             this.truckManagement.Padding = new System.Windows.Forms.Padding(3);
-            this.truckManagement.Size = new System.Drawing.Size(773, 432);
+            this.truckManagement.Size = new System.Drawing.Size(786, 398);
             this.truckManagement.TabIndex = 3;
             this.truckManagement.Text = "Truck management";
             this.truckManagement.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(16, 22);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(83, 31);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Forum";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // listView1
+            // 
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(26, 29);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(286, 347);
+            this.listView1.TabIndex = 0;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(441, 73);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(100, 22);
+            this.textBox9.TabIndex = 1;
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(441, 110);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(100, 22);
+            this.textBox10.TabIndex = 2;
+            // 
+            // textBox11
+            // 
+            this.textBox11.Location = new System.Drawing.Point(441, 151);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(100, 22);
+            this.textBox11.TabIndex = 3;
+            // 
+            // textBox12
+            // 
+            this.textBox12.Location = new System.Drawing.Point(654, 73);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(78, 22);
+            this.textBox12.TabIndex = 4;
+            // 
+            // textBox13
+            // 
+            this.textBox13.Location = new System.Drawing.Point(654, 110);
+            this.textBox13.Name = "textBox13";
+            this.textBox13.Size = new System.Drawing.Size(78, 22);
+            this.textBox13.TabIndex = 5;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(346, 73);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(46, 17);
+            this.label9.TabIndex = 6;
+            this.label9.Text = "label9";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(346, 110);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(54, 17);
+            this.label10.TabIndex = 7;
+            this.label10.Text = "label10";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(346, 151);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(54, 17);
+            this.label11.TabIndex = 8;
+            this.label11.Text = "label11";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(570, 73);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(54, 17);
+            this.label12.TabIndex = 9;
+            this.label12.Text = "label12";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(570, 110);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(54, 17);
+            this.label13.TabIndex = 10;
+            this.label13.Text = "label13";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(349, 241);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(91, 37);
+            this.button2.TabIndex = 11;
+            this.button2.Text = "Add";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(502, 241);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(94, 37);
+            this.button3.TabIndex = 12;
+            this.button3.Text = "Update";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(654, 241);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(93, 37);
+            this.button4.TabIndex = 13;
+            this.button4.Text = "Delete";
+            this.button4.UseVisualStyleBackColor = true;
             // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(827, 498);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.desManagement);
             this.Name = "AdminForm";
             this.Text = "AdminForm";
@@ -353,6 +510,8 @@ namespace lab1_prtech
             this.userManagment.ResumeLayout(false);
             this.userManagment.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.database)).EndInit();
+            this.truckManagement.ResumeLayout(false);
+            this.truckManagement.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -387,5 +546,20 @@ namespace lab1_prtech
         private System.Windows.Forms.TabPage truckManagement;
         private System.Windows.Forms.RadioButton managerChoise;
         private System.Windows.Forms.RadioButton driverChoise;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.Button button1;
     }
 }

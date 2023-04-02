@@ -60,7 +60,7 @@ namespace lab1_prtech
             }
             
         }
-
+        ListViewItem
         private void Edit_Click(object sender, EventArgs e)
         {
             if (id != null)

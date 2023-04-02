@@ -115,6 +115,7 @@ namespace lab1_prtech
             this.managerLicNum.Name = "managerLicNum";
             this.managerLicNum.Size = new System.Drawing.Size(118, 22);
             this.managerLicNum.TabIndex = 20;
+            this.managerLicNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.managerLogin_KeyPress);
             // 
             // managerPhoneNum
             // 
@@ -122,6 +123,7 @@ namespace lab1_prtech
             this.managerPhoneNum.Name = "managerPhoneNum";
             this.managerPhoneNum.Size = new System.Drawing.Size(118, 22);
             this.managerPhoneNum.TabIndex = 19;
+            this.managerPhoneNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.managerLogin_KeyPress);
             // 
             // managerSurname
             // 
@@ -129,6 +131,7 @@ namespace lab1_prtech
             this.managerSurname.Name = "managerSurname";
             this.managerSurname.Size = new System.Drawing.Size(118, 22);
             this.managerSurname.TabIndex = 18;
+            this.managerSurname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.managerLogin_KeyPress);
             // 
             // managerName
             // 
@@ -136,6 +139,7 @@ namespace lab1_prtech
             this.managerName.Name = "managerName";
             this.managerName.Size = new System.Drawing.Size(118, 22);
             this.managerName.TabIndex = 17;
+            this.managerName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.managerLogin_KeyPress);
             // 
             // managerPassword
             // 
@@ -143,6 +147,7 @@ namespace lab1_prtech
             this.managerPassword.Name = "managerPassword";
             this.managerPassword.Size = new System.Drawing.Size(118, 22);
             this.managerPassword.TabIndex = 16;
+            this.managerPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.managerLogin_KeyPress);
             // 
             // managerLogin
             // 
@@ -150,6 +155,7 @@ namespace lab1_prtech
             this.managerLogin.Name = "managerLogin";
             this.managerLogin.Size = new System.Drawing.Size(118, 22);
             this.managerLogin.TabIndex = 15;
+            this.managerLogin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.managerLogin_KeyPress);
             // 
             // isAdmin
             // 

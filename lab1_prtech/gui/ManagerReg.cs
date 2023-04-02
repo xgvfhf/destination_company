@@ -42,5 +42,24 @@ namespace lab1_prtech
         {
 
         }
+
+        private void managerLogin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            var txt = sender as TextBox;
+            char symb = e.KeyChar;
+            if (txt.Text.Length > 7 && symb != 8)
+            {
+                e.Handled = true;
+                MessageBox.Show("length of text can not be more then 8!");
+            }
+            else if ((txt.Name.Equals("managerPhoneNum") || txt.Name.Equals("managerLicNum")) && !Char.IsDigit(symb) && symb != 8)
+            {
+                e.Handled = true;
+            }
+            else if ((txt.Name.Equals("managerName") || txt.Name.Equals("managerSurname")) && Char.IsDigit(symb))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

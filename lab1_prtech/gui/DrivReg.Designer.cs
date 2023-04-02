@@ -52,6 +52,7 @@ namespace lab1_prtech
             this.driverLogin.Name = "driverLogin";
             this.driverLogin.Size = new System.Drawing.Size(118, 22);
             this.driverLogin.TabIndex = 0;
+            this.driverLogin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.driverLogin_KeyPress);
             // 
             // driverPassword
             // 
@@ -59,6 +60,7 @@ namespace lab1_prtech
             this.driverPassword.Name = "driverPassword";
             this.driverPassword.Size = new System.Drawing.Size(118, 22);
             this.driverPassword.TabIndex = 1;
+            this.driverPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.driverLogin_KeyPress);
             // 
             // driverName
             // 
@@ -66,6 +68,7 @@ namespace lab1_prtech
             this.driverName.Name = "driverName";
             this.driverName.Size = new System.Drawing.Size(118, 22);
             this.driverName.TabIndex = 2;
+            this.driverName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.driverLogin_KeyPress);
             // 
             // driverSurname
             // 
@@ -73,6 +76,7 @@ namespace lab1_prtech
             this.driverSurname.Name = "driverSurname";
             this.driverSurname.Size = new System.Drawing.Size(118, 22);
             this.driverSurname.TabIndex = 3;
+            this.driverSurname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.driverLogin_KeyPress);
             // 
             // driverPhoneNum
             // 
@@ -80,6 +84,7 @@ namespace lab1_prtech
             this.driverPhoneNum.Name = "driverPhoneNum";
             this.driverPhoneNum.Size = new System.Drawing.Size(118, 22);
             this.driverPhoneNum.TabIndex = 4;
+            this.driverPhoneNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.driverLogin_KeyPress);
             // 
             // driverLicNum
             // 
@@ -87,6 +92,7 @@ namespace lab1_prtech
             this.driverLicNum.Name = "driverLicNum";
             this.driverLicNum.Size = new System.Drawing.Size(118, 22);
             this.driverLicNum.TabIndex = 5;
+            this.driverLicNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.driverLogin_KeyPress);
             // 
             // driverMedNum
             // 
@@ -94,6 +100,7 @@ namespace lab1_prtech
             this.driverMedNum.Name = "driverMedNum";
             this.driverMedNum.Size = new System.Drawing.Size(118, 22);
             this.driverMedNum.TabIndex = 6;
+            this.driverMedNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.driverLogin_KeyPress);
             // 
             // label1
             // 
