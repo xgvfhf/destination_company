@@ -44,23 +44,30 @@ namespace lab1_prtech
 
         private void Add_Click(object sender, EventArgs e)
         {
-            Database db = new Database();
+            try
+            {
+                Database db = new Database();
 
-            string query1 = $"INSERT INTO Stuff(Login,Password,Status,FirstName,LastName,PhoneNum,MedSert,DrivLicNum)VALUES('{textBox1.Text}','{textBox2.Text}','{"Driver"}','{textBox3.Text}','{textBox4.Text}',{textBox5.Text},{textBox7.Text},{textBox8.Text})";
-            string query2 = $"INSERT INTO Stuff(Login,Password,Status,FirstName,LastName,PhoneNum,ManLicNum)VALUES('{textBox1.Text}','{textBox2.Text}','{"Manager"}','{textBox3.Text}','{textBox4.Text}',{textBox5.Text},{textBox6.Text})";
-            if (driverChoise.Checked)
-            {
-                DoAction(query1, db);
-                MessageBox.Show("Added");
+                string query1 = $"INSERT INTO Stuff(Login,Password,Status,FirstName,LastName,PhoneNum,MedSert,DrivLicNum)VALUES('{textBox1.Text}','{textBox2.Text}','{"Driver"}','{textBox3.Text}','{textBox4.Text}',{textBox5.Text},{textBox7.Text},{textBox8.Text})";
+                string query2 = $"INSERT INTO Stuff(Login,Password,Status,FirstName,LastName,PhoneNum,ManLicNum)VALUES('{textBox1.Text}','{textBox2.Text}','{"Manager"}','{textBox3.Text}','{textBox4.Text}',{textBox5.Text},{textBox6.Text})";
+                if (driverChoise.Checked)
+                {
+                    DoAction(query1, db);
+                    MessageBox.Show("Added");
+                }
+                else
+                {
+                    DoAction(query2, db);
+                    MessageBox.Show("Added");
+                }
             }
-            else
+            catch (Exception)
             {
-                DoAction(query2, db);
-                MessageBox.Show("Added");
+                MessageBox.Show("enter all values!");
             }
             
         }
-        ListViewItem
+        
         private void Edit_Click(object sender, EventArgs e)
         {
             if (id != null)
