@@ -16,5 +16,10 @@ namespace lab1_prtech
         {
             InitializeComponent();
         }
+
+        private void SimpleDriverForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

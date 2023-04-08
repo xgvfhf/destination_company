@@ -38,7 +38,7 @@ namespace lab1_prtech
         private void button2_Click(object sender, EventArgs e)
         {
            
-            string query = $"SELECT isAdmin FROM Stuff WHERE Login = '{textBox1.Text}' AND Password = '{textBox2.Text}' AND Status = '{statusName}'";
+            string query = $"SELECT * FROM Stuff WHERE Login = '{textBox1.Text}' AND Password = '{textBox2.Text}' AND Status = '{statusName}'";
             Database db = new Database();          
             SqlCommand command = new SqlCommand(query, db.getCon());
             db.open();                 
@@ -50,16 +50,16 @@ namespace lab1_prtech
             try
             {
                 DataRow row = dataTable.Rows[0];
-                string selectedId = row.ItemArray[0].ToString();
+                string selectedId = row.ItemArray[10].ToString();
                 if (dataTable != null)
                 {
                     switch (selectedId)
                     {
                         case "True":
-                            new AdminForm().Show();
+                            new AdminForm(new Manager() {Login = row.ItemArray[1].ToString(), Password = row.ItemArray[2].ToString(),Name = row.ItemArray[4].ToString(),Surname = row.ItemArray[5].ToString() ,PhoneNum = row.ItemArray[6].ToString() ,ManLicNum = row.ItemArray[9].ToString(),isAdmin = row.ItemArray[10].ToString() }).Show();
                             return;
                         case "False":
-                            new SimpleManagerForm().Show();
+                            new SimpleManagerForm(new Manager() { Login = row.ItemArray[1].ToString(), Password = row.ItemArray[2].ToString(), Name = row.ItemArray[4].ToString(), Surname = row.ItemArray[5].ToString(), PhoneNum = row.ItemArray[6].ToString(), ManLicNum = row.ItemArray[9].ToString(), isAdmin = row.ItemArray[10].ToString() }).Show();
                             return;
                         case "":
                             new SimpleDriverForm().Show();

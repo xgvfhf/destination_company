@@ -4,9 +4,10 @@ using System.Text;
 
 namespace lab1_prtech
 {
-    class Cargo
+    public class Cargo
     {
-        public int Weight { get; set; }
+        public string CargoName { get; set; }
+        public string Weight { get; set; }
         public string Products { get; set; }
     }
 }

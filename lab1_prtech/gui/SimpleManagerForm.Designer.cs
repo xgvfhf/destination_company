@@ -31,11 +31,10 @@ namespace lab1_prtech
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.forum = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -50,10 +49,11 @@ namespace lab1_prtech
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.forum = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -78,6 +78,16 @@ namespace lab1_prtech
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "User management";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(95, 78);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(642, 244);
+            this.dataGridView1.TabIndex = 0;
             // 
             // tabPage2
             // 
@@ -124,25 +134,6 @@ namespace lab1_prtech
             this.tabPage4.Text = "Truck management";
             this.tabPage4.UseVisualStyleBackColor = true;
             this.tabPage4.Click += new System.EventHandler(this.tabPage4_Click);
-            // 
-            // forum
-            // 
-            this.forum.Location = new System.Drawing.Point(728, 487);
-            this.forum.Name = "forum";
-            this.forum.Size = new System.Drawing.Size(90, 27);
-            this.forum.TabIndex = 1;
-            this.forum.Text = "Forum";
-            this.forum.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(95, 78);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(642, 244);
-            this.dataGridView1.TabIndex = 0;
             // 
             // button4
             // 
@@ -260,6 +251,16 @@ namespace lab1_prtech
             this.listView1.TabIndex = 14;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
+            // forum
+            // 
+            this.forum.Location = new System.Drawing.Point(728, 487);
+            this.forum.Name = "forum";
+            this.forum.Size = new System.Drawing.Size(90, 27);
+            this.forum.TabIndex = 1;
+            this.forum.Text = "Forum";
+            this.forum.UseVisualStyleBackColor = true;
+            this.forum.Click += new System.EventHandler(this.forum_Click);
+            // 
             // SimpleManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -272,9 +273,9 @@ namespace lab1_prtech
             this.Load += new System.EventHandler(this.SimpleManagerForm_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }

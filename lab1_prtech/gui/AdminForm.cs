@@ -14,10 +14,16 @@ namespace lab1_prtech
     public partial class AdminForm : Form
     {
         string id;
-        public AdminForm(object[] ob)
+        Manager RespMan;
+        Dictionary<string,Destination> destination;
+        Dictionary<string, Cargo> cargo = new Dictionary<string, Cargo>();
+        Dictionary<string, Truck> truck;
+
+        public AdminForm(Manager man)
         {
             InitializeComponent();
-            //data = ob;
+            RespMan = man;
+            Text = man.Name + " " + man.Surname + " administrator";
         }
         public AdminForm()
         {
@@ -163,6 +169,13 @@ namespace lab1_prtech
             db.open();
             command.ExecuteNonQuery();          
             db.close();
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            Cargo ct = new Cargo() {Weight = textBox14.Text , Products = textBox15.Text };
+            cargo.Add(textBox13.Text,ct);
+            listView2.Items.Add(textBox13.Text);
         }
     }
 }

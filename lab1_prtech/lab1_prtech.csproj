@@ -148,6 +148,7 @@
     <Compile Include="gui\SimpleManagerForm.Designer.cs">
       <DependentUpon>SimpleManagerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="model\Stop.cs" />
     <Compile Include="WorkersDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

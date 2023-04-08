@@ -6,7 +6,7 @@ namespace lab1_prtech
 {
     class Truck
     {
-        public string Make { get; set; }
+        
         public string Model { get; set; }
         public string Year { get; set; }
         public string Odometr { get; set; }

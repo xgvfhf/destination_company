@@ -12,11 +12,17 @@ namespace lab1_prtech
 {
     public partial class SimpleManagerForm : Form
     {
+        Manager RespMan;
+        public SimpleManagerForm(Manager man)
+        {
+            InitializeComponent();
+            RespMan = man;
+            Text = man.Name + " " + man.Surname + " manager";
+        }
         public SimpleManagerForm()
         {
             InitializeComponent();
         }
-
         private void tabPage4_Click(object sender, EventArgs e)
         {
 
@@ -28,6 +34,11 @@ namespace lab1_prtech
         }
 
         private void SimpleManagerForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void forum_Click(object sender, EventArgs e)
         {
 
         }
