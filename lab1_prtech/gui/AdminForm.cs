@@ -15,9 +15,9 @@ namespace lab1_prtech
     {
         string id;
         Manager RespMan;
-        Dictionary<string,Destination> destination;
+        Dictionary<string,Destination> destination = new Dictionary<string, Destination>();
         Dictionary<string, Cargo> cargo = new Dictionary<string, Cargo>();
-        Dictionary<string, Truck> truck;
+        Dictionary<string, Truck> truck = new Dictionary<string, Truck>();
 
         public AdminForm(Manager man)
         {
@@ -173,9 +173,154 @@ namespace lab1_prtech
 
         private void button11_Click(object sender, EventArgs e)
         {
-            Cargo ct = new Cargo() {Weight = textBox14.Text , Products = textBox15.Text };
-            cargo.Add(textBox13.Text,ct);
-            listView2.Items.Add(textBox13.Text);
+            try
+            {
+                Cargo ct = new Cargo() { Weight = textBox14.Text, Products = textBox15.Text };
+                cargo.Add(textBox13.Text, ct);
+                listBox1.Items.Add(textBox13.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Already added!");
+            }           
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            cargo[textBox13.Text] = new Cargo() {Weight = textBox14.Text,Products = textBox15.Text };
+            MessageBox.Show("Updated!");
+        }
+
+        private void listBox1_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedItem != null)
+            {
+                textBox13.Text = listBox1.SelectedItem.ToString();
+                textBox14.Text = cargo[textBox13.Text].Weight;
+                textBox15.Text = cargo[textBox13.Text].Products;
+            }
+           
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (listBox1.SelectedItem != null)
+                {
+                    cargo.Remove(listBox1.SelectedItem.ToString());
+                    listBox1.Items.Remove(listBox1.SelectedItem);
+                    MessageBox.Show("Deleted!");
+                }
+                
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Select item you want to delete!");
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Destination ds = new Destination() { PointA = textBox16.Text, PointB = textBox17.Text };
+                destination.Add(textBox18.Text, ds);
+                listBox2.Items.Add(textBox18.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Already added!");
+            }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            destination[textBox18.Text] = new Destination() { PointA = textBox16.Text, PointB = textBox17.Text };
+            MessageBox.Show("Updated!");
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                destination.Remove(listBox2.SelectedItem.ToString());
+                listBox2.Items.Remove(listBox2.SelectedItem);
+                MessageBox.Show("Deleted!");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Select item you want to delete!");
+            }
+        }
+
+        private void listBox2_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (listBox2.SelectedItem != null)
+            {
+                textBox18.Text = listBox2.SelectedItem.ToString();
+                textBox16.Text = destination[textBox18.Text].PointA;
+                textBox17.Text = destination[textBox18.Text].PointB;
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Truck tr = new Truck() { Year = textBox2.Text, Model = textBox10.Text,Fuel = textBox12.Text ,Odometr = textBox11.Text };
+                truck.Add(textBox10.Text, tr);
+                listBox3.Items.Add(textBox10.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Already added!");
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            truck[textBox18.Text] = new Truck() { Year = textBox2.Text, Model = textBox10.Text, Fuel = textBox12.Text, Odometr = textBox11.Text };
+            MessageBox.Show("Updated!");
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                truck.Remove(listBox3.SelectedItem.ToString());
+                listBox3.Items.Remove(listBox3.SelectedItem);
+                MessageBox.Show("Deleted!");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Select item you want to delete!");
+            }
+        }
+
+        private void listBox3_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (listBox3.SelectedItem != null)
+            {
+                textBox10.Text = listBox3.SelectedItem.ToString();
+                textBox2.Text = truck[textBox10.Text].Year;
+                textBox12.Text = truck[textBox10.Text].Fuel;
+                textBox11.Text = truck[textBox10.Text].Odometr;
+            }
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            if (comboBox1.Items.Count == destination.Keys.Count && comboBox2.Items.Count == cargo.Keys.Count)
+            {
+                MessageBox.Show("Already updated!");
+            }
+            else
+            {
+                comboBox1.Items.AddRange(destination.Keys.ToArray());
+                comboBox2.Items.AddRange(cargo.Keys.ToArray());
+            }
+            
         }
     }
 }

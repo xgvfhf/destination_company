@@ -6,6 +6,10 @@ namespace lab1_prtech
 {
     class Destination
     {
+        public Destination()
+        {
+
+        }
         public Destination(Stop st)
         {
             stops.Add(st);    
@@ -13,6 +17,6 @@ namespace lab1_prtech
         public string PointA { get; set; }
         public string PointB { get; set; }
         public Manager RespMan { get; set; }
-        List<Stop> stops;
+        public List<Stop> stops;
     }
 }

@@ -55,7 +55,6 @@ namespace lab1_prtech
             this.Add = new System.Windows.Forms.Button();
             this.database = new System.Windows.Forms.DataGridView();
             this.carManagement = new System.Windows.Forms.TabPage();
-            this.listView2 = new System.Windows.Forms.ListView();
             this.label13 = new System.Windows.Forms.Label();
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
@@ -74,7 +73,6 @@ namespace lab1_prtech
             this.label16 = new System.Windows.Forms.Label();
             this.textBox17 = new System.Windows.Forms.TextBox();
             this.textBox16 = new System.Windows.Forms.TextBox();
-            this.listView3 = new System.Windows.Forms.ListView();
             this.truckManagement = new System.Windows.Forms.TabPage();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -87,8 +85,17 @@ namespace lab1_prtech
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
-            this.listView1 = new System.Windows.Forms.ListView();
             this.button1 = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.listBox3 = new System.Windows.Forms.ListBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.button12 = new System.Windows.Forms.Button();
             this.desManagement.SuspendLayout();
             this.userManagment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.database)).BeginInit();
@@ -348,7 +355,7 @@ namespace lab1_prtech
             // 
             // carManagement
             // 
-            this.carManagement.Controls.Add(this.listView2);
+            this.carManagement.Controls.Add(this.listBox1);
             this.carManagement.Controls.Add(this.label13);
             this.carManagement.Controls.Add(this.textBox13);
             this.carManagement.Controls.Add(this.button5);
@@ -365,15 +372,6 @@ namespace lab1_prtech
             this.carManagement.TabIndex = 1;
             this.carManagement.Text = "Cargo management";
             this.carManagement.UseVisualStyleBackColor = true;
-            // 
-            // listView2
-            // 
-            this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(15, 32);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(322, 348);
-            this.listView2.TabIndex = 15;
-            this.listView2.UseCompatibleStateImageBehavior = false;
             // 
             // label13
             // 
@@ -399,6 +397,7 @@ namespace lab1_prtech
             this.button5.TabIndex = 12;
             this.button5.Text = "delete";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button10
             // 
@@ -408,6 +407,7 @@ namespace lab1_prtech
             this.button10.TabIndex = 11;
             this.button10.Text = "update";
             this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // button11
             // 
@@ -454,6 +454,9 @@ namespace lab1_prtech
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.label18);
+            this.tabPage3.Controls.Add(this.textBox18);
+            this.tabPage3.Controls.Add(this.listBox2);
             this.tabPage3.Controls.Add(this.button9);
             this.tabPage3.Controls.Add(this.button8);
             this.tabPage3.Controls.Add(this.button7);
@@ -462,7 +465,6 @@ namespace lab1_prtech
             this.tabPage3.Controls.Add(this.label16);
             this.tabPage3.Controls.Add(this.textBox17);
             this.tabPage3.Controls.Add(this.textBox16);
-            this.tabPage3.Controls.Add(this.listView3);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -479,6 +481,7 @@ namespace lab1_prtech
             this.button9.TabIndex = 9;
             this.button9.Text = "delete";
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button8
             // 
@@ -488,6 +491,7 @@ namespace lab1_prtech
             this.button8.TabIndex = 8;
             this.button8.Text = "update";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button7
             // 
@@ -506,6 +510,7 @@ namespace lab1_prtech
             this.button6.TabIndex = 6;
             this.button6.Text = "submit";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // label17
             // 
@@ -539,17 +544,14 @@ namespace lab1_prtech
             this.textBox16.Size = new System.Drawing.Size(172, 22);
             this.textBox16.TabIndex = 2;
             // 
-            // listView3
-            // 
-            this.listView3.HideSelection = false;
-            this.listView3.Location = new System.Drawing.Point(20, 24);
-            this.listView3.Name = "listView3";
-            this.listView3.Size = new System.Drawing.Size(322, 348);
-            this.listView3.TabIndex = 1;
-            this.listView3.UseCompatibleStateImageBehavior = false;
-            // 
             // truckManagement
             // 
+            this.truckManagement.Controls.Add(this.button12);
+            this.truckManagement.Controls.Add(this.label20);
+            this.truckManagement.Controls.Add(this.label19);
+            this.truckManagement.Controls.Add(this.comboBox2);
+            this.truckManagement.Controls.Add(this.comboBox1);
+            this.truckManagement.Controls.Add(this.listBox3);
             this.truckManagement.Controls.Add(this.button4);
             this.truckManagement.Controls.Add(this.button3);
             this.truckManagement.Controls.Add(this.button2);
@@ -561,7 +563,6 @@ namespace lab1_prtech
             this.truckManagement.Controls.Add(this.textBox11);
             this.truckManagement.Controls.Add(this.textBox10);
             this.truckManagement.Controls.Add(this.textBox9);
-            this.truckManagement.Controls.Add(this.listView1);
             this.truckManagement.Location = new System.Drawing.Point(4, 25);
             this.truckManagement.Name = "truckManagement";
             this.truckManagement.Padding = new System.Windows.Forms.Padding(3);
@@ -578,6 +579,7 @@ namespace lab1_prtech
             this.button4.TabIndex = 13;
             this.button4.Text = "Delete";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -585,8 +587,9 @@ namespace lab1_prtech
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(94, 37);
             this.button3.TabIndex = 12;
-            this.button3.Text = "Update";
+            this.button3.Text = "Edit";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -596,11 +599,12 @@ namespace lab1_prtech
             this.button2.TabIndex = 11;
             this.button2.Text = "Add";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(570, 73);
+            this.label12.Location = new System.Drawing.Point(561, 76);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(35, 17);
             this.label12.TabIndex = 9;
@@ -609,7 +613,7 @@ namespace lab1_prtech
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(559, 134);
+            this.label11.Location = new System.Drawing.Point(559, 122);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(63, 17);
             this.label11.TabIndex = 8;
@@ -618,7 +622,7 @@ namespace lab1_prtech
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(346, 131);
+            this.label10.Location = new System.Drawing.Point(346, 117);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(46, 17);
             this.label10.TabIndex = 7;
@@ -642,14 +646,14 @@ namespace lab1_prtech
             // 
             // textBox11
             // 
-            this.textBox11.Location = new System.Drawing.Point(629, 134);
+            this.textBox11.Location = new System.Drawing.Point(629, 120);
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(100, 22);
             this.textBox11.TabIndex = 3;
             // 
             // textBox10
             // 
-            this.textBox10.Location = new System.Drawing.Point(412, 131);
+            this.textBox10.Location = new System.Drawing.Point(412, 117);
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(100, 22);
             this.textBox10.TabIndex = 2;
@@ -661,15 +665,6 @@ namespace lab1_prtech
             this.textBox9.Size = new System.Drawing.Size(100, 22);
             this.textBox9.TabIndex = 1;
             // 
-            // listView1
-            // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(26, 29);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(286, 347);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(16, 22);
@@ -678,6 +673,96 @@ namespace lab1_prtech
             this.button1.TabIndex = 1;
             this.button1.Text = "Forum";
             this.button1.UseVisualStyleBackColor = true;
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 16;
+            this.listBox1.Location = new System.Drawing.Point(16, 17);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(347, 324);
+            this.listBox1.TabIndex = 15;
+            this.listBox1.SelectedValueChanged += new System.EventHandler(this.listBox1_SelectedValueChanged);
+            // 
+            // listBox2
+            // 
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.ItemHeight = 16;
+            this.listBox2.Location = new System.Drawing.Point(30, 36);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(347, 324);
+            this.listBox2.TabIndex = 16;
+            this.listBox2.SelectedValueChanged += new System.EventHandler(this.listBox2_SelectedValueChanged);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(430, 80);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(45, 17);
+            this.label18.TabIndex = 18;
+            this.label18.Text = "Name";
+            // 
+            // textBox18
+            // 
+            this.textBox18.Location = new System.Drawing.Point(546, 80);
+            this.textBox18.Name = "textBox18";
+            this.textBox18.Size = new System.Drawing.Size(173, 22);
+            this.textBox18.TabIndex = 17;
+            // 
+            // listBox3
+            // 
+            this.listBox3.FormattingEnabled = true;
+            this.listBox3.ItemHeight = 16;
+            this.listBox3.Location = new System.Drawing.Point(21, 35);
+            this.listBox3.Name = "listBox3";
+            this.listBox3.Size = new System.Drawing.Size(286, 340);
+            this.listBox3.TabIndex = 14;
+            this.listBox3.SelectedValueChanged += new System.EventHandler(this.listBox3_SelectedValueChanged);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(412, 169);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 24);
+            this.comboBox1.TabIndex = 15;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(629, 169);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(121, 24);
+            this.comboBox2.TabIndex = 16;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(346, 169);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(33, 17);
+            this.label19.TabIndex = 17;
+            this.label19.Text = "Trip";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(559, 172);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(46, 17);
+            this.label20.TabIndex = 18;
+            this.label20.Text = "Cargo";
+            // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(502, 296);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(94, 34);
+            this.button12.TabIndex = 19;
+            this.button12.Text = "Update";
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // AdminForm
             // 
@@ -744,7 +829,6 @@ namespace lab1_prtech
         private System.Windows.Forms.TextBox textBox11;
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
@@ -756,7 +840,6 @@ namespace lab1_prtech
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox textBox17;
         private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.ListView listView3;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button11;
@@ -764,6 +847,15 @@ namespace lab1_prtech
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.ListBox listBox3;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button button12;
     }
 }
