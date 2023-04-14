@@ -49,14 +49,11 @@ namespace lab1_prtech
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.Update = new System.Windows.Forms.Button();
             this.Delete = new System.Windows.Forms.Button();
             this.Edit = new System.Windows.Forms.Button();
             this.Add = new System.Windows.Forms.Button();
             this.database = new System.Windows.Forms.DataGridView();
             this.carManagement = new System.Windows.Forms.TabPage();
-            this.label13 = new System.Windows.Forms.Label();
-            this.textBox13 = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
@@ -74,6 +71,10 @@ namespace lab1_prtech
             this.textBox17 = new System.Windows.Forms.TextBox();
             this.textBox16 = new System.Windows.Forms.TextBox();
             this.truckManagement = new System.Windows.Forms.TabPage();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -86,22 +87,18 @@ namespace lab1_prtech
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.textBox18 = new System.Windows.Forms.TextBox();
-            this.listBox3 = new System.Windows.Forms.ListBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.button12 = new System.Windows.Forms.Button();
+            this.database1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.desManagement.SuspendLayout();
             this.userManagment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.database)).BeginInit();
             this.carManagement.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.truckManagement.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.database1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.SuspendLayout();
             // 
             // desManagement
@@ -113,7 +110,7 @@ namespace lab1_prtech
             this.desManagement.Location = new System.Drawing.Point(12, 59);
             this.desManagement.Name = "desManagement";
             this.desManagement.SelectedIndex = 0;
-            this.desManagement.Size = new System.Drawing.Size(794, 427);
+            this.desManagement.Size = new System.Drawing.Size(797, 445);
             this.desManagement.TabIndex = 0;
             // 
             // userManagment
@@ -136,7 +133,6 @@ namespace lab1_prtech
             this.userManagment.Controls.Add(this.textBox3);
             this.userManagment.Controls.Add(this.textBox2);
             this.userManagment.Controls.Add(this.textBox1);
-            this.userManagment.Controls.Add(this.Update);
             this.userManagment.Controls.Add(this.Delete);
             this.userManagment.Controls.Add(this.Edit);
             this.userManagment.Controls.Add(this.Add);
@@ -144,7 +140,7 @@ namespace lab1_prtech
             this.userManagment.Location = new System.Drawing.Point(4, 25);
             this.userManagment.Name = "userManagment";
             this.userManagment.Padding = new System.Windows.Forms.Padding(3);
-            this.userManagment.Size = new System.Drawing.Size(786, 398);
+            this.userManagment.Size = new System.Drawing.Size(789, 416);
             this.userManagment.TabIndex = 0;
             this.userManagment.Text = "User management";
             this.userManagment.UseVisualStyleBackColor = true;
@@ -301,16 +297,6 @@ namespace lab1_prtech
             this.textBox1.Size = new System.Drawing.Size(125, 22);
             this.textBox1.TabIndex = 5;
             // 
-            // Update
-            // 
-            this.Update.Location = new System.Drawing.Point(540, 355);
-            this.Update.Name = "Update";
-            this.Update.Size = new System.Drawing.Size(75, 23);
-            this.Update.TabIndex = 4;
-            this.Update.Text = "Update";
-            this.Update.UseVisualStyleBackColor = true;
-            this.Update.Click += new System.EventHandler(this.Update_Click);
-            // 
             // Delete
             // 
             this.Delete.Location = new System.Drawing.Point(633, 314);
@@ -355,9 +341,7 @@ namespace lab1_prtech
             // 
             // carManagement
             // 
-            this.carManagement.Controls.Add(this.listBox1);
-            this.carManagement.Controls.Add(this.label13);
-            this.carManagement.Controls.Add(this.textBox13);
+            this.carManagement.Controls.Add(this.database1);
             this.carManagement.Controls.Add(this.button5);
             this.carManagement.Controls.Add(this.button10);
             this.carManagement.Controls.Add(this.button11);
@@ -368,26 +352,10 @@ namespace lab1_prtech
             this.carManagement.Location = new System.Drawing.Point(4, 25);
             this.carManagement.Name = "carManagement";
             this.carManagement.Padding = new System.Windows.Forms.Padding(3);
-            this.carManagement.Size = new System.Drawing.Size(786, 398);
+            this.carManagement.Size = new System.Drawing.Size(789, 416);
             this.carManagement.TabIndex = 1;
             this.carManagement.Text = "Cargo management";
             this.carManagement.UseVisualStyleBackColor = true;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(386, 32);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(45, 17);
-            this.label13.TabIndex = 14;
-            this.label13.Text = "Name";
-            // 
-            // textBox13
-            // 
-            this.textBox13.Location = new System.Drawing.Point(502, 32);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(234, 22);
-            this.textBox13.TabIndex = 13;
             // 
             // button5
             // 
@@ -422,7 +390,7 @@ namespace lab1_prtech
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(383, 109);
+            this.label15.Location = new System.Drawing.Point(402, 81);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(64, 17);
             this.label15.TabIndex = 4;
@@ -431,7 +399,7 @@ namespace lab1_prtech
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(383, 67);
+            this.label14.Location = new System.Drawing.Point(402, 39);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(52, 17);
             this.label14.TabIndex = 3;
@@ -439,7 +407,7 @@ namespace lab1_prtech
             // 
             // textBox15
             // 
-            this.textBox15.Location = new System.Drawing.Point(502, 106);
+            this.textBox15.Location = new System.Drawing.Point(521, 78);
             this.textBox15.Multiline = true;
             this.textBox15.Name = "textBox15";
             this.textBox15.Size = new System.Drawing.Size(234, 142);
@@ -447,16 +415,14 @@ namespace lab1_prtech
             // 
             // textBox14
             // 
-            this.textBox14.Location = new System.Drawing.Point(502, 67);
+            this.textBox14.Location = new System.Drawing.Point(521, 39);
             this.textBox14.Name = "textBox14";
             this.textBox14.Size = new System.Drawing.Size(234, 22);
             this.textBox14.TabIndex = 1;
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.label18);
-            this.tabPage3.Controls.Add(this.textBox18);
-            this.tabPage3.Controls.Add(this.listBox2);
+            this.tabPage3.Controls.Add(this.dataGridView2);
             this.tabPage3.Controls.Add(this.button9);
             this.tabPage3.Controls.Add(this.button8);
             this.tabPage3.Controls.Add(this.button7);
@@ -468,14 +434,14 @@ namespace lab1_prtech
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(786, 398);
+            this.tabPage3.Size = new System.Drawing.Size(787, 428);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Destination management";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(626, 214);
+            this.button9.Location = new System.Drawing.Point(644, 212);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(93, 30);
             this.button9.TabIndex = 9;
@@ -485,7 +451,7 @@ namespace lab1_prtech
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(516, 214);
+            this.button8.Location = new System.Drawing.Point(534, 212);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(93, 30);
             this.button8.TabIndex = 8;
@@ -495,7 +461,7 @@ namespace lab1_prtech
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(516, 274);
+            this.button7.Location = new System.Drawing.Point(534, 272);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(93, 30);
             this.button7.TabIndex = 7;
@@ -504,7 +470,7 @@ namespace lab1_prtech
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(402, 214);
+            this.button6.Location = new System.Drawing.Point(420, 212);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(93, 30);
             this.button6.TabIndex = 6;
@@ -546,12 +512,11 @@ namespace lab1_prtech
             // 
             // truckManagement
             // 
-            this.truckManagement.Controls.Add(this.button12);
+            this.truckManagement.Controls.Add(this.dataGridView3);
             this.truckManagement.Controls.Add(this.label20);
             this.truckManagement.Controls.Add(this.label19);
             this.truckManagement.Controls.Add(this.comboBox2);
             this.truckManagement.Controls.Add(this.comboBox1);
-            this.truckManagement.Controls.Add(this.listBox3);
             this.truckManagement.Controls.Add(this.button4);
             this.truckManagement.Controls.Add(this.button3);
             this.truckManagement.Controls.Add(this.button2);
@@ -566,14 +531,48 @@ namespace lab1_prtech
             this.truckManagement.Location = new System.Drawing.Point(4, 25);
             this.truckManagement.Name = "truckManagement";
             this.truckManagement.Padding = new System.Windows.Forms.Padding(3);
-            this.truckManagement.Size = new System.Drawing.Size(786, 398);
+            this.truckManagement.Size = new System.Drawing.Size(787, 428);
             this.truckManagement.TabIndex = 3;
             this.truckManagement.Text = "Truck management";
             this.truckManagement.UseVisualStyleBackColor = true;
             // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(581, 174);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(46, 17);
+            this.label20.TabIndex = 18;
+            this.label20.Text = "Cargo";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(368, 171);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(33, 17);
+            this.label19.TabIndex = 17;
+            this.label19.Text = "Trip";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(651, 171);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(121, 24);
+            this.comboBox2.TabIndex = 16;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(434, 171);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 24);
+            this.comboBox1.TabIndex = 15;
+            // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(654, 241);
+            this.button4.Location = new System.Drawing.Point(679, 239);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(93, 37);
             this.button4.TabIndex = 13;
@@ -583,7 +582,7 @@ namespace lab1_prtech
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(502, 241);
+            this.button3.Location = new System.Drawing.Point(527, 239);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(94, 37);
             this.button3.TabIndex = 12;
@@ -593,7 +592,7 @@ namespace lab1_prtech
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(349, 241);
+            this.button2.Location = new System.Drawing.Point(374, 239);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(91, 37);
             this.button2.TabIndex = 11;
@@ -604,7 +603,7 @@ namespace lab1_prtech
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(561, 76);
+            this.label12.Location = new System.Drawing.Point(583, 78);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(35, 17);
             this.label12.TabIndex = 9;
@@ -613,7 +612,7 @@ namespace lab1_prtech
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(559, 122);
+            this.label11.Location = new System.Drawing.Point(581, 124);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(63, 17);
             this.label11.TabIndex = 8;
@@ -622,7 +621,7 @@ namespace lab1_prtech
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(346, 117);
+            this.label10.Location = new System.Drawing.Point(368, 119);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(46, 17);
             this.label10.TabIndex = 7;
@@ -631,7 +630,7 @@ namespace lab1_prtech
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(346, 73);
+            this.label9.Location = new System.Drawing.Point(368, 75);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(38, 17);
             this.label9.TabIndex = 6;
@@ -639,28 +638,28 @@ namespace lab1_prtech
             // 
             // textBox12
             // 
-            this.textBox12.Location = new System.Drawing.Point(629, 73);
+            this.textBox12.Location = new System.Drawing.Point(651, 75);
             this.textBox12.Name = "textBox12";
             this.textBox12.Size = new System.Drawing.Size(100, 22);
             this.textBox12.TabIndex = 4;
             // 
             // textBox11
             // 
-            this.textBox11.Location = new System.Drawing.Point(629, 120);
+            this.textBox11.Location = new System.Drawing.Point(651, 122);
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(100, 22);
             this.textBox11.TabIndex = 3;
             // 
             // textBox10
             // 
-            this.textBox10.Location = new System.Drawing.Point(412, 117);
+            this.textBox10.Location = new System.Drawing.Point(434, 119);
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(100, 22);
             this.textBox10.TabIndex = 2;
             // 
             // textBox9
             // 
-            this.textBox9.Location = new System.Drawing.Point(412, 73);
+            this.textBox9.Location = new System.Drawing.Point(434, 75);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(100, 22);
             this.textBox9.TabIndex = 1;
@@ -674,95 +673,37 @@ namespace lab1_prtech
             this.button1.Text = "Forum";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // listBox1
+            // database1
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(16, 17);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(347, 324);
-            this.listBox1.TabIndex = 15;
-            this.listBox1.SelectedValueChanged += new System.EventHandler(this.listBox1_SelectedValueChanged);
+            this.database1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.database1.Location = new System.Drawing.Point(17, 12);
+            this.database1.MultiSelect = false;
+            this.database1.Name = "database1";
+            this.database1.RowHeadersWidth = 51;
+            this.database1.RowTemplate.Height = 24;
+            this.database1.Size = new System.Drawing.Size(360, 391);
+            this.database1.TabIndex = 15;
+            this.database1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.database1_CellClick);
             // 
-            // listBox2
+            // dataGridView2
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 16;
-            this.listBox2.Location = new System.Drawing.Point(30, 36);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(347, 324);
-            this.listBox2.TabIndex = 16;
-            this.listBox2.SelectedValueChanged += new System.EventHandler(this.listBox2_SelectedValueChanged);
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(16, 18);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersWidth = 51;
+            this.dataGridView2.RowTemplate.Height = 24;
+            this.dataGridView2.Size = new System.Drawing.Size(360, 391);
+            this.dataGridView2.TabIndex = 19;
             // 
-            // label18
+            // dataGridView3
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(430, 80);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(45, 17);
-            this.label18.TabIndex = 18;
-            this.label18.Text = "Name";
-            // 
-            // textBox18
-            // 
-            this.textBox18.Location = new System.Drawing.Point(546, 80);
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(173, 22);
-            this.textBox18.TabIndex = 17;
-            // 
-            // listBox3
-            // 
-            this.listBox3.FormattingEnabled = true;
-            this.listBox3.ItemHeight = 16;
-            this.listBox3.Location = new System.Drawing.Point(21, 35);
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(286, 340);
-            this.listBox3.TabIndex = 14;
-            this.listBox3.SelectedValueChanged += new System.EventHandler(this.listBox3_SelectedValueChanged);
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(412, 169);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 15;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(629, 169);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 24);
-            this.comboBox2.TabIndex = 16;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(346, 169);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(33, 17);
-            this.label19.TabIndex = 17;
-            this.label19.Text = "Trip";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(559, 172);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(46, 17);
-            this.label20.TabIndex = 18;
-            this.label20.Text = "Cargo";
-            // 
-            // button12
-            // 
-            this.button12.Location = new System.Drawing.Point(502, 296);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(94, 34);
-            this.button12.TabIndex = 19;
-            this.button12.Text = "Update";
-            this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Location = new System.Drawing.Point(6, 15);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.RowHeadersWidth = 51;
+            this.dataGridView3.RowTemplate.Height = 24;
+            this.dataGridView3.Size = new System.Drawing.Size(334, 384);
+            this.dataGridView3.TabIndex = 20;
             // 
             // AdminForm
             // 
@@ -784,6 +725,9 @@ namespace lab1_prtech
             this.tabPage3.PerformLayout();
             this.truckManagement.ResumeLayout(false);
             this.truckManagement.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.database1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -809,7 +753,6 @@ namespace lab1_prtech
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button Update;
         private System.Windows.Forms.Button Delete;
         private System.Windows.Forms.Button Edit;
         private System.Windows.Forms.Button Add;
@@ -845,17 +788,12 @@ namespace lab1_prtech
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox textBox18;
-        private System.Windows.Forms.ListBox listBox3;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.DataGridView database1;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dataGridView3;
     }
 }
