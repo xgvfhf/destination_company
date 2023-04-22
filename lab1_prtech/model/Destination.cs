@@ -4,19 +4,21 @@ using System.Text;
 
 namespace lab1_prtech
 {
-    class Destination
+    public class Destination
     {
         public Destination()
         {
 
         }
-        public Destination(Stop st)
+        public Destination(string pnta, string pntb, Stop st)
         {
+            PointA = pnta;
+            PointB = pntb;
             stops.Add(st);    
         }
         public string PointA { get; set; }
         public string PointB { get; set; }
         public Manager RespMan { get; set; }
-        public List<Stop> stops;
+        public List<Stop> stops = new List<Stop>();
     }
 }

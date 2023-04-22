@@ -41,64 +41,66 @@ namespace lab1_prtech
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.driverMedSertNumLine = new System.Windows.Forms.TextBox();
+            this.driverLicNumLine = new System.Windows.Forms.TextBox();
+            this.managerLicNumLine = new System.Windows.Forms.TextBox();
+            this.phoneNumLine = new System.Windows.Forms.TextBox();
+            this.surnameLine = new System.Windows.Forms.TextBox();
+            this.nameLine = new System.Windows.Forms.TextBox();
+            this.passwordLine = new System.Windows.Forms.TextBox();
+            this.loginLine = new System.Windows.Forms.TextBox();
             this.Delete = new System.Windows.Forms.Button();
             this.Edit = new System.Windows.Forms.Button();
             this.Add = new System.Windows.Forms.Button();
-            this.database = new System.Windows.Forms.DataGridView();
+            this.allStuffDatabase = new System.Windows.Forms.DataGridView();
             this.carManagement = new System.Windows.Forms.TabPage();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
+            this.cargoNameLine = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.cargoDatabase = new System.Windows.Forms.DataGridView();
+            this.DeleteCargo = new System.Windows.Forms.Button();
+            this.EditCargo = new System.Windows.Forms.Button();
+            this.addCargo = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.cargoProductLine = new System.Windows.Forms.TextBox();
+            this.cargoWeightLine = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.destinationDatabase = new System.Windows.Forms.DataGridView();
+            this.DeleteDestenation = new System.Windows.Forms.Button();
+            this.EditDestenation = new System.Windows.Forms.Button();
+            this.AddDestenation = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.textBox17 = new System.Windows.Forms.TextBox();
-            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.finishPointLine = new System.Windows.Forms.TextBox();
+            this.startPointLine = new System.Windows.Forms.TextBox();
             this.truckManagement = new System.Windows.Forms.TabPage();
+            this.Reload = new System.Windows.Forms.Button();
+            this.truckDatabase = new System.Windows.Forms.DataGridView();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.cargoSelection = new System.Windows.Forms.ComboBox();
+            this.tripSelection = new System.Windows.Forms.ComboBox();
+            this.DeleteTruck = new System.Windows.Forms.Button();
+            this.EditTruck = new System.Windows.Forms.Button();
+            this.AddTruck = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.fuelLine = new System.Windows.Forms.TextBox();
+            this.odometrLine = new System.Windows.Forms.TextBox();
+            this.modelLine = new System.Windows.Forms.TextBox();
+            this.yearLine = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.database1 = new System.Windows.Forms.DataGridView();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.desManagement.SuspendLayout();
             this.userManagment.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.database)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allStuffDatabase)).BeginInit();
             this.carManagement.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cargoDatabase)).BeginInit();
             this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.destinationDatabase)).BeginInit();
             this.truckManagement.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.database1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.truckDatabase)).BeginInit();
             this.SuspendLayout();
             // 
             // desManagement
@@ -125,18 +127,18 @@ namespace lab1_prtech
             this.userManagment.Controls.Add(this.label3);
             this.userManagment.Controls.Add(this.label2);
             this.userManagment.Controls.Add(this.label1);
-            this.userManagment.Controls.Add(this.textBox8);
-            this.userManagment.Controls.Add(this.textBox7);
-            this.userManagment.Controls.Add(this.textBox6);
-            this.userManagment.Controls.Add(this.textBox5);
-            this.userManagment.Controls.Add(this.textBox4);
-            this.userManagment.Controls.Add(this.textBox3);
-            this.userManagment.Controls.Add(this.textBox2);
-            this.userManagment.Controls.Add(this.textBox1);
+            this.userManagment.Controls.Add(this.driverMedSertNumLine);
+            this.userManagment.Controls.Add(this.driverLicNumLine);
+            this.userManagment.Controls.Add(this.managerLicNumLine);
+            this.userManagment.Controls.Add(this.phoneNumLine);
+            this.userManagment.Controls.Add(this.surnameLine);
+            this.userManagment.Controls.Add(this.nameLine);
+            this.userManagment.Controls.Add(this.passwordLine);
+            this.userManagment.Controls.Add(this.loginLine);
             this.userManagment.Controls.Add(this.Delete);
             this.userManagment.Controls.Add(this.Edit);
             this.userManagment.Controls.Add(this.Add);
-            this.userManagment.Controls.Add(this.database);
+            this.userManagment.Controls.Add(this.allStuffDatabase);
             this.userManagment.Location = new System.Drawing.Point(4, 25);
             this.userManagment.Name = "userManagment";
             this.userManagment.Padding = new System.Windows.Forms.Padding(3);
@@ -241,61 +243,69 @@ namespace lab1_prtech
             this.label1.TabIndex = 13;
             this.label1.Text = "login";
             // 
-            // textBox8
+            // driverMedSertNumLine
             // 
-            this.textBox8.Location = new System.Drawing.Point(583, 253);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(125, 22);
-            this.textBox8.TabIndex = 12;
+            this.driverMedSertNumLine.Location = new System.Drawing.Point(583, 253);
+            this.driverMedSertNumLine.Name = "driverMedSertNumLine";
+            this.driverMedSertNumLine.Size = new System.Drawing.Size(125, 22);
+            this.driverMedSertNumLine.TabIndex = 12;
+            this.driverMedSertNumLine.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.loginLine_KeyPress);
             // 
-            // textBox7
+            // driverLicNumLine
             // 
-            this.textBox7.Location = new System.Drawing.Point(583, 225);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(125, 22);
-            this.textBox7.TabIndex = 11;
+            this.driverLicNumLine.Location = new System.Drawing.Point(583, 225);
+            this.driverLicNumLine.Name = "driverLicNumLine";
+            this.driverLicNumLine.Size = new System.Drawing.Size(125, 22);
+            this.driverLicNumLine.TabIndex = 11;
+            this.driverLicNumLine.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.loginLine_KeyPress);
             // 
-            // textBox6
+            // managerLicNumLine
             // 
-            this.textBox6.Location = new System.Drawing.Point(583, 197);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(125, 22);
-            this.textBox6.TabIndex = 10;
+            this.managerLicNumLine.Location = new System.Drawing.Point(583, 197);
+            this.managerLicNumLine.Name = "managerLicNumLine";
+            this.managerLicNumLine.Size = new System.Drawing.Size(125, 22);
+            this.managerLicNumLine.TabIndex = 10;
+            this.managerLicNumLine.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.loginLine_KeyPress);
             // 
-            // textBox5
+            // phoneNumLine
             // 
-            this.textBox5.Location = new System.Drawing.Point(583, 169);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(125, 22);
-            this.textBox5.TabIndex = 9;
+            this.phoneNumLine.Location = new System.Drawing.Point(583, 169);
+            this.phoneNumLine.Name = "phoneNumLine";
+            this.phoneNumLine.Size = new System.Drawing.Size(125, 22);
+            this.phoneNumLine.TabIndex = 9;
+            this.phoneNumLine.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.loginLine_KeyPress);
             // 
-            // textBox4
+            // surnameLine
             // 
-            this.textBox4.Location = new System.Drawing.Point(583, 141);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(125, 22);
-            this.textBox4.TabIndex = 8;
+            this.surnameLine.Location = new System.Drawing.Point(583, 141);
+            this.surnameLine.Name = "surnameLine";
+            this.surnameLine.Size = new System.Drawing.Size(125, 22);
+            this.surnameLine.TabIndex = 8;
+            this.surnameLine.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.loginLine_KeyPress);
             // 
-            // textBox3
+            // nameLine
             // 
-            this.textBox3.Location = new System.Drawing.Point(583, 113);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(125, 22);
-            this.textBox3.TabIndex = 7;
+            this.nameLine.Location = new System.Drawing.Point(583, 113);
+            this.nameLine.Name = "nameLine";
+            this.nameLine.Size = new System.Drawing.Size(125, 22);
+            this.nameLine.TabIndex = 7;
+            this.nameLine.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.loginLine_KeyPress);
             // 
-            // textBox2
+            // passwordLine
             // 
-            this.textBox2.Location = new System.Drawing.Point(583, 85);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(125, 22);
-            this.textBox2.TabIndex = 6;
+            this.passwordLine.Location = new System.Drawing.Point(583, 85);
+            this.passwordLine.Name = "passwordLine";
+            this.passwordLine.Size = new System.Drawing.Size(125, 22);
+            this.passwordLine.TabIndex = 6;
+            this.passwordLine.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.loginLine_KeyPress);
             // 
-            // textBox1
+            // loginLine
             // 
-            this.textBox1.Location = new System.Drawing.Point(583, 57);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(125, 22);
-            this.textBox1.TabIndex = 5;
+            this.loginLine.Location = new System.Drawing.Point(583, 57);
+            this.loginLine.Name = "loginLine";
+            this.loginLine.Size = new System.Drawing.Size(125, 22);
+            this.loginLine.TabIndex = 5;
+            this.loginLine.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.loginLine_KeyPress);
             // 
             // Delete
             // 
@@ -327,28 +337,30 @@ namespace lab1_prtech
             this.Add.UseVisualStyleBackColor = true;
             this.Add.Click += new System.EventHandler(this.Add_Click);
             // 
-            // database
+            // allStuffDatabase
             // 
-            this.database.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.database.Location = new System.Drawing.Point(17, 17);
-            this.database.MultiSelect = false;
-            this.database.Name = "database";
-            this.database.RowHeadersWidth = 51;
-            this.database.RowTemplate.Height = 24;
-            this.database.Size = new System.Drawing.Size(402, 386);
-            this.database.TabIndex = 0;
-            this.database.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.database_CellClick);
+            this.allStuffDatabase.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.allStuffDatabase.Location = new System.Drawing.Point(17, 17);
+            this.allStuffDatabase.MultiSelect = false;
+            this.allStuffDatabase.Name = "allStuffDatabase";
+            this.allStuffDatabase.RowHeadersWidth = 51;
+            this.allStuffDatabase.RowTemplate.Height = 24;
+            this.allStuffDatabase.Size = new System.Drawing.Size(402, 386);
+            this.allStuffDatabase.TabIndex = 0;
+            this.allStuffDatabase.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.allStuffDatabase_CellClick);
             // 
             // carManagement
             // 
-            this.carManagement.Controls.Add(this.database1);
-            this.carManagement.Controls.Add(this.button5);
-            this.carManagement.Controls.Add(this.button10);
-            this.carManagement.Controls.Add(this.button11);
+            this.carManagement.Controls.Add(this.cargoNameLine);
+            this.carManagement.Controls.Add(this.label13);
+            this.carManagement.Controls.Add(this.cargoDatabase);
+            this.carManagement.Controls.Add(this.DeleteCargo);
+            this.carManagement.Controls.Add(this.EditCargo);
+            this.carManagement.Controls.Add(this.addCargo);
             this.carManagement.Controls.Add(this.label15);
             this.carManagement.Controls.Add(this.label14);
-            this.carManagement.Controls.Add(this.textBox15);
-            this.carManagement.Controls.Add(this.textBox14);
+            this.carManagement.Controls.Add(this.cargoProductLine);
+            this.carManagement.Controls.Add(this.cargoWeightLine);
             this.carManagement.Location = new System.Drawing.Point(4, 25);
             this.carManagement.Name = "carManagement";
             this.carManagement.Padding = new System.Windows.Forms.Padding(3);
@@ -357,40 +369,68 @@ namespace lab1_prtech
             this.carManagement.Text = "Cargo management";
             this.carManagement.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // cargoNameLine
             // 
-            this.button5.Location = new System.Drawing.Point(631, 284);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(93, 30);
-            this.button5.TabIndex = 12;
-            this.button5.Text = "delete";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.cargoNameLine.Location = new System.Drawing.Point(521, 53);
+            this.cargoNameLine.Name = "cargoNameLine";
+            this.cargoNameLine.Size = new System.Drawing.Size(234, 22);
+            this.cargoNameLine.TabIndex = 17;
             // 
-            // button10
+            // label13
             // 
-            this.button10.Location = new System.Drawing.Point(521, 284);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(93, 30);
-            this.button10.TabIndex = 11;
-            this.button10.Text = "update";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(402, 58);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(89, 17);
+            this.label13.TabIndex = 16;
+            this.label13.Text = "Cargo name:";
             // 
-            // button11
+            // cargoDatabase
             // 
-            this.button11.Location = new System.Drawing.Point(407, 284);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(93, 30);
-            this.button11.TabIndex = 10;
-            this.button11.Text = "submit";
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
+            this.cargoDatabase.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.cargoDatabase.Location = new System.Drawing.Point(17, 12);
+            this.cargoDatabase.MultiSelect = false;
+            this.cargoDatabase.Name = "cargoDatabase";
+            this.cargoDatabase.RowHeadersWidth = 51;
+            this.cargoDatabase.RowTemplate.Height = 24;
+            this.cargoDatabase.Size = new System.Drawing.Size(360, 391);
+            this.cargoDatabase.TabIndex = 15;
+            this.cargoDatabase.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.cargoDatabase_CellClick);
+            // 
+            // DeleteCargo
+            // 
+            this.DeleteCargo.Location = new System.Drawing.Point(662, 317);
+            this.DeleteCargo.Name = "DeleteCargo";
+            this.DeleteCargo.Size = new System.Drawing.Size(93, 30);
+            this.DeleteCargo.TabIndex = 12;
+            this.DeleteCargo.Text = "delete";
+            this.DeleteCargo.UseVisualStyleBackColor = true;
+            this.DeleteCargo.Click += new System.EventHandler(this.DeleteCargo_Click);
+            // 
+            // EditCargo
+            // 
+            this.EditCargo.Location = new System.Drawing.Point(552, 317);
+            this.EditCargo.Name = "EditCargo";
+            this.EditCargo.Size = new System.Drawing.Size(93, 30);
+            this.EditCargo.TabIndex = 11;
+            this.EditCargo.Text = "update";
+            this.EditCargo.UseVisualStyleBackColor = true;
+            this.EditCargo.Click += new System.EventHandler(this.EditCargo_Click);
+            // 
+            // addCargo
+            // 
+            this.addCargo.Location = new System.Drawing.Point(438, 317);
+            this.addCargo.Name = "addCargo";
+            this.addCargo.Size = new System.Drawing.Size(93, 30);
+            this.addCargo.TabIndex = 10;
+            this.addCargo.Text = "submit";
+            this.addCargo.UseVisualStyleBackColor = true;
+            this.addCargo.Click += new System.EventHandler(this.addCargo_Click);
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(402, 81);
+            this.label15.Location = new System.Drawing.Point(402, 135);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(64, 17);
             this.label15.TabIndex = 4;
@@ -399,84 +439,85 @@ namespace lab1_prtech
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(402, 39);
+            this.label14.Location = new System.Drawing.Point(402, 93);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(52, 17);
             this.label14.TabIndex = 3;
             this.label14.Text = "Weight";
             // 
-            // textBox15
+            // cargoProductLine
             // 
-            this.textBox15.Location = new System.Drawing.Point(521, 78);
-            this.textBox15.Multiline = true;
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(234, 142);
-            this.textBox15.TabIndex = 2;
+            this.cargoProductLine.Location = new System.Drawing.Point(521, 132);
+            this.cargoProductLine.Multiline = true;
+            this.cargoProductLine.Name = "cargoProductLine";
+            this.cargoProductLine.Size = new System.Drawing.Size(234, 142);
+            this.cargoProductLine.TabIndex = 2;
             // 
-            // textBox14
+            // cargoWeightLine
             // 
-            this.textBox14.Location = new System.Drawing.Point(521, 39);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(234, 22);
-            this.textBox14.TabIndex = 1;
+            this.cargoWeightLine.Location = new System.Drawing.Point(521, 93);
+            this.cargoWeightLine.Name = "cargoWeightLine";
+            this.cargoWeightLine.Size = new System.Drawing.Size(234, 22);
+            this.cargoWeightLine.TabIndex = 1;
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.dataGridView2);
-            this.tabPage3.Controls.Add(this.button9);
-            this.tabPage3.Controls.Add(this.button8);
-            this.tabPage3.Controls.Add(this.button7);
-            this.tabPage3.Controls.Add(this.button6);
+            this.tabPage3.Controls.Add(this.destinationDatabase);
+            this.tabPage3.Controls.Add(this.DeleteDestenation);
+            this.tabPage3.Controls.Add(this.EditDestenation);
+            this.tabPage3.Controls.Add(this.AddDestenation);
             this.tabPage3.Controls.Add(this.label17);
             this.tabPage3.Controls.Add(this.label16);
-            this.tabPage3.Controls.Add(this.textBox17);
-            this.tabPage3.Controls.Add(this.textBox16);
+            this.tabPage3.Controls.Add(this.finishPointLine);
+            this.tabPage3.Controls.Add(this.startPointLine);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(787, 428);
+            this.tabPage3.Size = new System.Drawing.Size(789, 416);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Destination management";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // button9
+            // destinationDatabase
             // 
-            this.button9.Location = new System.Drawing.Point(644, 212);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(93, 30);
-            this.button9.TabIndex = 9;
-            this.button9.Text = "delete";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
+            this.destinationDatabase.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.destinationDatabase.Location = new System.Drawing.Point(16, 18);
+            this.destinationDatabase.Name = "destinationDatabase";
+            this.destinationDatabase.RowHeadersWidth = 51;
+            this.destinationDatabase.RowTemplate.Height = 24;
+            this.destinationDatabase.Size = new System.Drawing.Size(360, 391);
+            this.destinationDatabase.TabIndex = 19;
+            this.destinationDatabase.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.destinationDatabase_CellClick);
             // 
-            // button8
+            // DeleteDestenation
             // 
-            this.button8.Location = new System.Drawing.Point(534, 212);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(93, 30);
-            this.button8.TabIndex = 8;
-            this.button8.Text = "update";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.DeleteDestenation.Location = new System.Drawing.Point(644, 212);
+            this.DeleteDestenation.Name = "DeleteDestenation";
+            this.DeleteDestenation.Size = new System.Drawing.Size(93, 30);
+            this.DeleteDestenation.TabIndex = 9;
+            this.DeleteDestenation.Text = "delete";
+            this.DeleteDestenation.UseVisualStyleBackColor = true;
+            this.DeleteDestenation.Click += new System.EventHandler(this.DeleteDestenation_Click);
             // 
-            // button7
+            // EditDestenation
             // 
-            this.button7.Location = new System.Drawing.Point(534, 272);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(93, 30);
-            this.button7.TabIndex = 7;
-            this.button7.Text = "add stop";
-            this.button7.UseVisualStyleBackColor = true;
+            this.EditDestenation.Location = new System.Drawing.Point(534, 212);
+            this.EditDestenation.Name = "EditDestenation";
+            this.EditDestenation.Size = new System.Drawing.Size(93, 30);
+            this.EditDestenation.TabIndex = 8;
+            this.EditDestenation.Text = "update";
+            this.EditDestenation.UseVisualStyleBackColor = true;
+            this.EditDestenation.Click += new System.EventHandler(this.EditDestenation_Click);
             // 
-            // button6
+            // AddDestenation
             // 
-            this.button6.Location = new System.Drawing.Point(420, 212);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(93, 30);
-            this.button6.TabIndex = 6;
-            this.button6.Text = "submit";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.AddDestenation.Location = new System.Drawing.Point(420, 212);
+            this.AddDestenation.Name = "AddDestenation";
+            this.AddDestenation.Size = new System.Drawing.Size(93, 30);
+            this.AddDestenation.TabIndex = 6;
+            this.AddDestenation.Text = "submit";
+            this.AddDestenation.UseVisualStyleBackColor = true;
+            this.AddDestenation.Click += new System.EventHandler(this.AddDestenation_Click);
             // 
             // label17
             // 
@@ -496,45 +537,67 @@ namespace lab1_prtech
             this.label16.TabIndex = 4;
             this.label16.Text = "point A";
             // 
-            // textBox17
+            // finishPointLine
             // 
-            this.textBox17.Location = new System.Drawing.Point(547, 149);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(172, 22);
-            this.textBox17.TabIndex = 3;
+            this.finishPointLine.Location = new System.Drawing.Point(547, 149);
+            this.finishPointLine.Name = "finishPointLine";
+            this.finishPointLine.Size = new System.Drawing.Size(172, 22);
+            this.finishPointLine.TabIndex = 3;
             // 
-            // textBox16
+            // startPointLine
             // 
-            this.textBox16.Location = new System.Drawing.Point(547, 108);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(172, 22);
-            this.textBox16.TabIndex = 2;
+            this.startPointLine.Location = new System.Drawing.Point(547, 108);
+            this.startPointLine.Name = "startPointLine";
+            this.startPointLine.Size = new System.Drawing.Size(172, 22);
+            this.startPointLine.TabIndex = 2;
             // 
             // truckManagement
             // 
-            this.truckManagement.Controls.Add(this.dataGridView3);
+            this.truckManagement.Controls.Add(this.Reload);
+            this.truckManagement.Controls.Add(this.truckDatabase);
             this.truckManagement.Controls.Add(this.label20);
             this.truckManagement.Controls.Add(this.label19);
-            this.truckManagement.Controls.Add(this.comboBox2);
-            this.truckManagement.Controls.Add(this.comboBox1);
-            this.truckManagement.Controls.Add(this.button4);
-            this.truckManagement.Controls.Add(this.button3);
-            this.truckManagement.Controls.Add(this.button2);
+            this.truckManagement.Controls.Add(this.cargoSelection);
+            this.truckManagement.Controls.Add(this.tripSelection);
+            this.truckManagement.Controls.Add(this.DeleteTruck);
+            this.truckManagement.Controls.Add(this.EditTruck);
+            this.truckManagement.Controls.Add(this.AddTruck);
             this.truckManagement.Controls.Add(this.label12);
             this.truckManagement.Controls.Add(this.label11);
             this.truckManagement.Controls.Add(this.label10);
             this.truckManagement.Controls.Add(this.label9);
-            this.truckManagement.Controls.Add(this.textBox12);
-            this.truckManagement.Controls.Add(this.textBox11);
-            this.truckManagement.Controls.Add(this.textBox10);
-            this.truckManagement.Controls.Add(this.textBox9);
+            this.truckManagement.Controls.Add(this.fuelLine);
+            this.truckManagement.Controls.Add(this.odometrLine);
+            this.truckManagement.Controls.Add(this.modelLine);
+            this.truckManagement.Controls.Add(this.yearLine);
             this.truckManagement.Location = new System.Drawing.Point(4, 25);
             this.truckManagement.Name = "truckManagement";
             this.truckManagement.Padding = new System.Windows.Forms.Padding(3);
-            this.truckManagement.Size = new System.Drawing.Size(787, 428);
+            this.truckManagement.Size = new System.Drawing.Size(789, 416);
             this.truckManagement.TabIndex = 3;
             this.truckManagement.Text = "Truck management";
             this.truckManagement.UseVisualStyleBackColor = true;
+            // 
+            // Reload
+            // 
+            this.Reload.Location = new System.Drawing.Point(527, 282);
+            this.Reload.Name = "Reload";
+            this.Reload.Size = new System.Drawing.Size(91, 34);
+            this.Reload.TabIndex = 22;
+            this.Reload.Text = "Reload";
+            this.Reload.UseVisualStyleBackColor = true;
+            this.Reload.Click += new System.EventHandler(this.Reload_Click);
+            // 
+            // truckDatabase
+            // 
+            this.truckDatabase.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.truckDatabase.Location = new System.Drawing.Point(6, 15);
+            this.truckDatabase.Name = "truckDatabase";
+            this.truckDatabase.RowHeadersWidth = 51;
+            this.truckDatabase.RowTemplate.Height = 24;
+            this.truckDatabase.Size = new System.Drawing.Size(334, 384);
+            this.truckDatabase.TabIndex = 20;
+            this.truckDatabase.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.truckDatabase_CellClick);
             // 
             // label20
             // 
@@ -554,51 +617,51 @@ namespace lab1_prtech
             this.label19.TabIndex = 17;
             this.label19.Text = "Trip";
             // 
-            // comboBox2
+            // cargoSelection
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(651, 171);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 24);
-            this.comboBox2.TabIndex = 16;
+            this.cargoSelection.FormattingEnabled = true;
+            this.cargoSelection.Location = new System.Drawing.Point(651, 171);
+            this.cargoSelection.Name = "cargoSelection";
+            this.cargoSelection.Size = new System.Drawing.Size(121, 24);
+            this.cargoSelection.TabIndex = 16;
             // 
-            // comboBox1
+            // tripSelection
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(434, 171);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 15;
+            this.tripSelection.FormattingEnabled = true;
+            this.tripSelection.Location = new System.Drawing.Point(434, 171);
+            this.tripSelection.Name = "tripSelection";
+            this.tripSelection.Size = new System.Drawing.Size(100, 24);
+            this.tripSelection.TabIndex = 15;
             // 
-            // button4
+            // DeleteTruck
             // 
-            this.button4.Location = new System.Drawing.Point(679, 239);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(93, 37);
-            this.button4.TabIndex = 13;
-            this.button4.Text = "Delete";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.DeleteTruck.Location = new System.Drawing.Point(679, 239);
+            this.DeleteTruck.Name = "DeleteTruck";
+            this.DeleteTruck.Size = new System.Drawing.Size(93, 37);
+            this.DeleteTruck.TabIndex = 13;
+            this.DeleteTruck.Text = "Delete";
+            this.DeleteTruck.UseVisualStyleBackColor = true;
+            this.DeleteTruck.Click += new System.EventHandler(this.DeleteTruck_Click);
             // 
-            // button3
+            // EditTruck
             // 
-            this.button3.Location = new System.Drawing.Point(527, 239);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(94, 37);
-            this.button3.TabIndex = 12;
-            this.button3.Text = "Edit";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.EditTruck.Location = new System.Drawing.Point(527, 239);
+            this.EditTruck.Name = "EditTruck";
+            this.EditTruck.Size = new System.Drawing.Size(94, 37);
+            this.EditTruck.TabIndex = 12;
+            this.EditTruck.Text = "Edit";
+            this.EditTruck.UseVisualStyleBackColor = true;
+            this.EditTruck.Click += new System.EventHandler(this.EditTruck_Click);
             // 
-            // button2
+            // AddTruck
             // 
-            this.button2.Location = new System.Drawing.Point(374, 239);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(91, 37);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "Add";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.AddTruck.Location = new System.Drawing.Point(374, 239);
+            this.AddTruck.Name = "AddTruck";
+            this.AddTruck.Size = new System.Drawing.Size(91, 37);
+            this.AddTruck.TabIndex = 11;
+            this.AddTruck.Text = "Add";
+            this.AddTruck.UseVisualStyleBackColor = true;
+            this.AddTruck.Click += new System.EventHandler(this.AddTruck_Click);
             // 
             // label12
             // 
@@ -636,33 +699,33 @@ namespace lab1_prtech
             this.label9.TabIndex = 6;
             this.label9.Text = "Year";
             // 
-            // textBox12
+            // fuelLine
             // 
-            this.textBox12.Location = new System.Drawing.Point(651, 75);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(100, 22);
-            this.textBox12.TabIndex = 4;
+            this.fuelLine.Location = new System.Drawing.Point(651, 75);
+            this.fuelLine.Name = "fuelLine";
+            this.fuelLine.Size = new System.Drawing.Size(100, 22);
+            this.fuelLine.TabIndex = 4;
             // 
-            // textBox11
+            // odometrLine
             // 
-            this.textBox11.Location = new System.Drawing.Point(651, 122);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(100, 22);
-            this.textBox11.TabIndex = 3;
+            this.odometrLine.Location = new System.Drawing.Point(651, 122);
+            this.odometrLine.Name = "odometrLine";
+            this.odometrLine.Size = new System.Drawing.Size(100, 22);
+            this.odometrLine.TabIndex = 3;
             // 
-            // textBox10
+            // modelLine
             // 
-            this.textBox10.Location = new System.Drawing.Point(434, 119);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(100, 22);
-            this.textBox10.TabIndex = 2;
+            this.modelLine.Location = new System.Drawing.Point(434, 119);
+            this.modelLine.Name = "modelLine";
+            this.modelLine.Size = new System.Drawing.Size(100, 22);
+            this.modelLine.TabIndex = 2;
             // 
-            // textBox9
+            // yearLine
             // 
-            this.textBox9.Location = new System.Drawing.Point(434, 75);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(100, 22);
-            this.textBox9.TabIndex = 1;
+            this.yearLine.Location = new System.Drawing.Point(434, 75);
+            this.yearLine.Name = "yearLine";
+            this.yearLine.Size = new System.Drawing.Size(100, 22);
+            this.yearLine.TabIndex = 1;
             // 
             // button1
             // 
@@ -672,38 +735,6 @@ namespace lab1_prtech
             this.button1.TabIndex = 1;
             this.button1.Text = "Forum";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // database1
-            // 
-            this.database1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.database1.Location = new System.Drawing.Point(17, 12);
-            this.database1.MultiSelect = false;
-            this.database1.Name = "database1";
-            this.database1.RowHeadersWidth = 51;
-            this.database1.RowTemplate.Height = 24;
-            this.database1.Size = new System.Drawing.Size(360, 391);
-            this.database1.TabIndex = 15;
-            this.database1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.database1_CellClick);
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(16, 18);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(360, 391);
-            this.dataGridView2.TabIndex = 19;
-            // 
-            // dataGridView3
-            // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(6, 15);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.RowHeadersWidth = 51;
-            this.dataGridView3.RowTemplate.Height = 24;
-            this.dataGridView3.Size = new System.Drawing.Size(334, 384);
-            this.dataGridView3.TabIndex = 20;
             // 
             // AdminForm
             // 
@@ -718,16 +749,16 @@ namespace lab1_prtech
             this.desManagement.ResumeLayout(false);
             this.userManagment.ResumeLayout(false);
             this.userManagment.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.database)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allStuffDatabase)).EndInit();
             this.carManagement.ResumeLayout(false);
             this.carManagement.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cargoDatabase)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.destinationDatabase)).EndInit();
             this.truckManagement.ResumeLayout(false);
             this.truckManagement.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.database1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.truckDatabase)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -745,55 +776,57 @@ namespace lab1_prtech
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox driverMedSertNumLine;
+        private System.Windows.Forms.TextBox driverLicNumLine;
+        private System.Windows.Forms.TextBox managerLicNumLine;
+        private System.Windows.Forms.TextBox phoneNumLine;
+        private System.Windows.Forms.TextBox surnameLine;
+        private System.Windows.Forms.TextBox nameLine;
+        private System.Windows.Forms.TextBox passwordLine;
+        private System.Windows.Forms.TextBox loginLine;
         private System.Windows.Forms.Button Delete;
         private System.Windows.Forms.Button Edit;
         private System.Windows.Forms.Button Add;
-        private System.Windows.Forms.DataGridView database;
+        private System.Windows.Forms.DataGridView allStuffDatabase;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage truckManagement;
         private System.Windows.Forms.RadioButton managerChoise;
         private System.Windows.Forms.RadioButton driverChoise;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button DeleteTruck;
+        private System.Windows.Forms.Button EditTruck;
+        private System.Windows.Forms.Button AddTruck;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox fuelLine;
+        private System.Windows.Forms.TextBox odometrLine;
+        private System.Windows.Forms.TextBox modelLine;
+        private System.Windows.Forms.TextBox yearLine;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.TextBox cargoProductLine;
+        private System.Windows.Forms.TextBox cargoWeightLine;
+        private System.Windows.Forms.Button AddDestenation;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox17;
-        private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.TextBox finishPointLine;
+        private System.Windows.Forms.TextBox startPointLine;
+        private System.Windows.Forms.Button DeleteCargo;
+        private System.Windows.Forms.Button EditCargo;
+        private System.Windows.Forms.Button addCargo;
+        private System.Windows.Forms.Button DeleteDestenation;
+        private System.Windows.Forms.Button EditDestenation;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.DataGridView database1;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.ComboBox cargoSelection;
+        private System.Windows.Forms.ComboBox tripSelection;
+        private System.Windows.Forms.DataGridView cargoDatabase;
+        private System.Windows.Forms.DataGridView destinationDatabase;
+        private System.Windows.Forms.DataGridView truckDatabase;
+        private System.Windows.Forms.TextBox cargoNameLine;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button Reload;
     }
 }

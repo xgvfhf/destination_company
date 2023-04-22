@@ -4,7 +4,7 @@ using System.Text;
 
 namespace lab1_prtech
 {
-    class Truck
+    public class Truck
     {
         
         public string Model { get; set; }

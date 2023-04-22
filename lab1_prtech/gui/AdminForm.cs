@@ -13,17 +13,26 @@ namespace lab1_prtech
 {
     public partial class AdminForm : Form
     {
-        string id;
+        string userId;
+        string cargoId;
+        string destId;
+        string truckId;
+        string cargoDictionaryKey;
+        string truckDictionaryKey;
+        string destDictionaryKey;
         Manager RespMan;
         Dictionary<string,Destination> destination = new Dictionary<string, Destination>();
         Dictionary<string, Cargo> cargo = new Dictionary<string, Cargo>();
         Dictionary<string, Truck> truck = new Dictionary<string, Truck>();
 
-        public AdminForm(Manager man)
+        public AdminForm(Manager man,  Dictionary<string, Cargo> crg, Dictionary<string, Destination> dest, Dictionary<string, Truck> trck)
         {
             InitializeComponent();
             RespMan = man;
             Text = man.Name + " " + man.Surname + " administrator";
+            destination = dest;
+            cargo = crg;
+            truck = trck;
         }
         public AdminForm()
         {
@@ -31,9 +40,11 @@ namespace lab1_prtech
            
         }
 
+
         private void Main_Load(object sender, EventArgs e)
         {
-            
+            cargoSelection.Items.AddRange(cargo.Keys.ToArray());
+            tripSelection.Items.AddRange(destination.Keys.ToArray());
         }
 
         private void Update_Click(object sender, EventArgs e)
@@ -44,7 +55,7 @@ namespace lab1_prtech
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(command);
             DataTable dataTable = new DataTable();
             sqlDataAdapter.Fill(dataTable);
-            database.DataSource = dataTable;
+            allStuffDatabase.DataSource = dataTable;
             db.close();
         }
 
@@ -54,19 +65,19 @@ namespace lab1_prtech
             {
                 Database db = new Database();
 
-                string query1 = $"INSERT INTO Stuff(Login,Password,Status,FirstName,LastName,PhoneNum,MedSert,DrivLicNum)VALUES('{textBox1.Text}','{textBox2.Text}','{"Driver"}','{textBox3.Text}','{textBox4.Text}',{textBox5.Text},{textBox7.Text},{textBox8.Text})";
-                string query2 = $"INSERT INTO Stuff(Login,Password,Status,FirstName,LastName,PhoneNum,ManLicNum)VALUES('{textBox1.Text}','{textBox2.Text}','{"Manager"}','{textBox3.Text}','{textBox4.Text}',{textBox5.Text},{textBox6.Text})";
+                string query1 = $"INSERT INTO Stuff(Login,Password,Status,FirstName,LastName,PhoneNum,MedSert,DrivLicNum)VALUES('{loginLine.Text}','{passwordLine.Text}','{"Driver"}','{nameLine.Text}','{surnameLine.Text}',{phoneNumLine.Text},{driverLicNumLine.Text},{driverMedSertNumLine.Text})";
+                string query2 = $"INSERT INTO Stuff(Login,Password,Status,FirstName,LastName,PhoneNum,ManLicNum)VALUES('{loginLine.Text}','{passwordLine.Text}','{"Manager"}','{nameLine.Text}','{surnameLine.Text}',{phoneNumLine.Text},{managerLicNumLine.Text})";
                 if (driverChoise.Checked)
                 {
                     DoAction(query1, db);
                     MessageBox.Show("Added");
-                    Update("Stuff", database);
+                    Update("Stuff", allStuffDatabase);
                 }
                 else
                 {
                     DoAction(query2, db);
                     MessageBox.Show("Added");
-                    Update("Stuff", database);
+                    Update("Stuff", allStuffDatabase);
                 }
             }
             catch (Exception)
@@ -78,24 +89,24 @@ namespace lab1_prtech
         
         private void Edit_Click(object sender, EventArgs e)
         {
-            if (id != null)
+            if (userId != null)
             {
                 Database db = new Database();
 
-                string query1 = $"UPDATE Stuff SET Login = '{textBox1.Text}',Password = '{textBox2.Text}',FirstName = '{textBox3.Text}',LastName='{textBox4.Text}',PhoneNum='{textBox5.Text}',MedSert='{textBox7.Text}',DrivLicNum='{textBox8.Text}' WHERE Id = '{id}'";
-                string query2 = $"UPDATE Stuff SET Login = '{textBox1.Text}',Password = '{textBox2.Text}',FirstName = '{textBox3.Text}',LastName='{textBox4.Text}',PhoneNum='{textBox5.Text}',ManLicNum='{textBox6.Text}' WHERE Id = '{id}'";
+                string query1 = $"UPDATE Stuff SET Login = '{loginLine.Text}',Password = '{passwordLine.Text}',FirstName = '{nameLine.Text}',LastName='{surnameLine.Text}',PhoneNum='{phoneNumLine.Text}',MedSert='{driverLicNumLine.Text}',DrivLicNum='{driverMedSertNumLine.Text}' WHERE Id = '{userId}'";
+                string query2 = $"UPDATE Stuff SET Login = '{loginLine.Text}',Password = '{passwordLine.Text}',FirstName = '{nameLine.Text}',LastName='{surnameLine.Text}',PhoneNum='{phoneNumLine.Text}',ManLicNum='{managerLicNumLine.Text}' WHERE Id = '{userId}'";
                 if (driverChoise.Checked)
                 {
                     DoAction(query1, db);
                     MessageBox.Show("Edited!");
-                    Update("Stuff",database);
+                    Update("Stuff",allStuffDatabase);
                     
                 }
                 else
                 {
                     DoAction(query2, db);
                     MessageBox.Show("Edited!");
-                    Update("Stuff", database);
+                    Update("Stuff", allStuffDatabase);
 
                 }
             }
@@ -107,18 +118,7 @@ namespace lab1_prtech
 
         private void Delete_Click(object sender, EventArgs e)
         {
-            if (id != null)
-            {
-                Database db = new Database();
-                string query = $"DELETE FROM Stuff WHERE Id = '{id}'";
-                DoAction(query, db);
-                MessageBox.Show("deleted!");
-                Update("Stuff", database);
-            }
-            else
-            {
-                MessageBox.Show("Choose row!");
-            }
+            DeleteRow("Stuff",userId, allStuffDatabase);
         }
 
         private void driverChoise_CheckedChanged(object sender, EventArgs e)
@@ -126,12 +126,12 @@ namespace lab1_prtech
             if (driverChoise.Checked)
             {
                 label6.Visible = false;
-                textBox6.Visible = false;
+                managerLicNumLine.Visible = false;
             }
             else 
             {
                 label6.Visible = true;
-                textBox6.Visible = true;
+                managerLicNumLine.Visible = true;
             }
             
         }
@@ -142,29 +142,16 @@ namespace lab1_prtech
             {
                 label7.Visible = false;
                 label8.Visible = false;
-                textBox7.Visible = false;
-                textBox8.Visible = false;
+                driverLicNumLine.Visible = false;
+                driverMedSertNumLine.Visible = false;
             }
             else
             {
                 label7.Visible = true;
                 label8.Visible = true;
-                textBox7.Visible = true;
-                textBox8.Visible = true;
+                driverLicNumLine.Visible = true;
+                driverMedSertNumLine.Visible = true;
             }
-        }
-
-        private void database_CellClick(object sender, DataGridViewCellEventArgs e)
-        {            
-            id = database.CurrentRow.Cells[0].Value.ToString();
-            textBox1.Text = database.CurrentRow.Cells[1].Value.ToString();
-            textBox2.Text = database.CurrentRow.Cells[2].Value.ToString();
-            textBox3.Text = database.CurrentRow.Cells[4].Value.ToString();
-            textBox4.Text = database.CurrentRow.Cells[5].Value.ToString();
-            textBox5.Text = database.CurrentRow.Cells[6].Value.ToString();
-            textBox6.Text = database.CurrentRow.Cells[7].Value.ToString();
-            textBox7.Text = database.CurrentRow.Cells[8].Value.ToString();
-            textBox8.Text = database.CurrentRow.Cells[9].Value.ToString();
         }
 
         void DoAction(string query, Database db)
@@ -173,23 +160,6 @@ namespace lab1_prtech
             db.open();
             command.ExecuteNonQuery();          
             db.close();
-        }
-
-        private void button11_Click(object sender, EventArgs e)
-        {
-            if(textBox14.Text != "" && textBox15.Text != "")
-            {
-                Database db = new Database();
-                string query1 = $"INSERT INTO Cargo(Weight,Products)VALUES('{textBox14.Text}','{textBox15.Text}')";                               
-                DoAction(query1, db);
-                MessageBox.Show("Added");
-                Update("Cargo", database1);
-
-            }
-            else
-            {
-                MessageBox.Show("enter all values!");
-            }
         }
         void Update(string table,DataGridView datagrid)
         {
@@ -203,49 +173,24 @@ namespace lab1_prtech
             db.close();
 
         }
-        private void button10_Click(object sender, EventArgs e)
+
+        void DeleteRow(string table, string id, DataGridView datagrid)
         {
-           
-        }
-
-        
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
-            
+            if (id != null)
+            {
+                Database db = new Database();
+                string query = $"DELETE FROM {table} WHERE Id = '{id}'";
+                DoAction(query, db);
+                MessageBox.Show("deleted!");
+                Update(table, datagrid);
+            }
+            else
+            {
+                MessageBox.Show("Choose row!");
+            }
         }
 
        
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            
-        }
 
         
 
@@ -254,11 +199,214 @@ namespace lab1_prtech
 
         }
 
-        private void database1_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void addCargo_Click(object sender, EventArgs e)
         {
-            id = database1.CurrentRow.Cells[0].Value.ToString();
-            textBox14.Text = database1.CurrentRow.Cells[1].Value.ToString();
-            textBox15.Text = database1.CurrentRow.Cells[2].Value.ToString();
+            if (cargoNameLine.Text != "" && cargoWeightLine.Text != "" && cargoProductLine.Text != "")
+            {
+                Database db = new Database();
+                string query1 = $"INSERT INTO Cargo(CargoName,Weight,Products)VALUES('{cargoNameLine.Text}','{cargoWeightLine.Text}','{cargoProductLine.Text}')";
+                DoAction(query1, db);
+                //cargo.Add(cargoNameLine.Text,new Cargo() {CargoName = cargoNameLine.Text,Weight = cargoWeightLine.Text,Products = cargoProductLine.Text });
+;               MessageBox.Show("Added");
+                Update("Cargo", cargoDatabase);
+
+            }
+            else
+            {
+                MessageBox.Show("enter all values!");
+            }
+        }
+
+        
+
+        private void allStuffDatabase_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            userId = allStuffDatabase.CurrentRow.Cells[0].Value.ToString();
+            loginLine.Text = allStuffDatabase.CurrentRow.Cells[1].Value.ToString();
+            passwordLine.Text = allStuffDatabase.CurrentRow.Cells[2].Value.ToString();
+            nameLine.Text = allStuffDatabase.CurrentRow.Cells[4].Value.ToString();
+            surnameLine.Text = allStuffDatabase.CurrentRow.Cells[5].Value.ToString();
+            phoneNumLine.Text = allStuffDatabase.CurrentRow.Cells[6].Value.ToString();
+            managerLicNumLine.Text = allStuffDatabase.CurrentRow.Cells[7].Value.ToString();
+            driverLicNumLine.Text = allStuffDatabase.CurrentRow.Cells[8].Value.ToString();
+            driverMedSertNumLine.Text = allStuffDatabase.CurrentRow.Cells[9].Value.ToString();
+        }
+
+        private void cargoDatabase_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            cargoId = cargoDatabase.CurrentRow.Cells[0].Value.ToString();            
+            cargoNameLine.Text = cargoDatabase.CurrentRow.Cells[1].Value.ToString();
+            cargoWeightLine.Text = cargoDatabase.CurrentRow.Cells[2].Value.ToString();
+            cargoProductLine.Text = cargoDatabase.CurrentRow.Cells[3].Value.ToString();
+            cargoDictionaryKey = cargoNameLine.Text;
+        }
+
+        private void EditCargo_Click(object sender, EventArgs e)
+        {
+            if (cargoId != null)
+            {
+                Database db = new Database();
+                string query1 = $"UPDATE Cargo SET Weight = '{cargoWeightLine.Text}',Products = '{cargoProductLine.Text}' WHERE Id = '{cargoId}'";               
+                DoAction(query1, db);
+               // cargo[cargoDictionaryKey] = new Cargo() { CargoName = cargoNameLine.Text, Weight = cargoWeightLine.Text, Products = cargoProductLine.Text };
+
+                MessageBox.Show("Edited!");
+                Update("Cargo", cargoDatabase);                
+            }
+            else
+            {
+                MessageBox.Show("Choose row!");
+            }
+        }
+
+        private void loginLine_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            var txt = sender as TextBox;
+            char symb = e.KeyChar;
+            if (txt.Text.Length > 7 && symb != 8)
+            {
+                e.Handled = true;
+                MessageBox.Show("length of text can not be more then 8!");
+            }
+            else if ((txt.Name.Equals("phoneNumLine") || txt.Name.Equals("managerLicNumLine") || txt.Name.Equals("driverLicNumLine") || txt.Name.Equals("driverMedSertNumLine")) && !Char.IsDigit(symb) && symb != 8)
+            {
+                e.Handled = true;
+            }
+            else if ((txt.Name.Equals("nameLine") || txt.Name.Equals("surnameLine")) && Char.IsDigit(symb))
+            {
+                e.Handled = true;
+            }
+
+        }
+
+        private void DeleteCargo_Click(object sender, EventArgs e)
+        {
+            DeleteRow("Cargo", cargoId, cargoDatabase);
+        }
+
+        private void AddDestenation_Click(object sender, EventArgs e)
+        {
+            if (startPointLine.Text != "" && finishPointLine.Text != "")
+            {
+                Database db = new Database();
+                string query1 = $"INSERT INTO Destenation(PointA,PointB,RespMan)VALUES('{startPointLine.Text}','{finishPointLine.Text}','{this.Text}')";
+                DoAction(query1, db);
+                
+                MessageBox.Show("Added");
+                Update("Destenation", destinationDatabase);
+
+            }
+            else
+            {
+                MessageBox.Show("enter all values!");
+            }
+        }
+
+        private void EditDestenation_Click(object sender, EventArgs e)
+        {
+            if (destId != null)
+            {
+                Database db = new Database();
+                string query1 = $"UPDATE Destenation SET PointA = '{startPointLine.Text}',PointB = '{finishPointLine.Text}' WHERE Id = '{destId}'";
+                DoAction(query1, db);
+                
+                MessageBox.Show("Edited!");
+                Update("Destenation", destinationDatabase);
+            }
+            else
+            {
+                MessageBox.Show("Choose row!");
+            }
+        }
+
+        private void destinationDatabase_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            destId = destinationDatabase.CurrentRow.Cells[0].Value.ToString();
+            startPointLine.Text = destinationDatabase.CurrentRow.Cells[1].Value.ToString();
+            finishPointLine.Text = destinationDatabase.CurrentRow.Cells[2].Value.ToString();
+            
+        }
+
+        private void DeleteDestenation_Click(object sender, EventArgs e)
+        {
+            DeleteRow("Destenation",destId,destinationDatabase);
+        }
+
+        private void Reload_Click(object sender, EventArgs e)
+        {
+            tripSelection.Items.Clear();
+            cargoSelection.Items.Clear();
+            Database db = new Database();
+            db.open();
+            SqlCommand command1 = new SqlCommand($"SELECT PointA,PointB FROM Destenation ", db.getCon());
+            SqlCommand command2 = new SqlCommand($"SELECT * FROM Cargo ", db.getCon());
+            SqlDataAdapter sqlDataAdapter1 = new SqlDataAdapter(command1);
+            SqlDataAdapter sqlDataAdapter2 = new SqlDataAdapter(command2);
+            DataTable dataTable1 = new DataTable();
+            DataTable dataTable2 = new DataTable();
+            sqlDataAdapter1.Fill(dataTable1);
+            sqlDataAdapter2.Fill(dataTable2);
+            db.close();
+            for (int i = 0; i < dataTable1.Rows.Count; i++)
+            {
+                string pnta = dataTable1.Rows[i][0].ToString();
+                string pntb = dataTable1.Rows[i][1].ToString();
+                tripSelection.Items.Add(pnta+" "+pntb);
+            }
+            for (int i = 0; i < dataTable2.Rows.Count; i++)
+            {
+                string pnta = dataTable2.Rows[i][1].ToString();
+                
+                cargoSelection.Items.Add(pnta);
+            }
+
+
+        }
+
+        private void AddTruck_Click(object sender, EventArgs e)
+        {
+            
+                Database db = new Database();
+                string query1 = $"INSERT INTO Truck(Model,Year,Odometr,Fuel,RespMan)VALUES('{modelLine.Text}','{yearLine.Text}','{odometrLine.Text}','{fuelLine.Text}','{Text}')";
+                DoAction(query1, db);
+
+                MessageBox.Show("Added");
+                Update("Truck", truckDatabase);
+
+        }
+
+        private void truckDatabase_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            truckId = truckDatabase.CurrentRow.Cells[0].Value.ToString();
+            modelLine.Text = truckDatabase.CurrentRow.Cells[1].Value.ToString();
+            yearLine.Text = truckDatabase.CurrentRow.Cells[2].Value.ToString();
+            odometrLine.Text = truckDatabase.CurrentRow.Cells[3].Value.ToString();
+            fuelLine.Text = truckDatabase.CurrentRow.Cells[4].Value.ToString();
+            //tripSelection.SelectedItem = truckDatabase.CurrentRow.Cells[5].Value;
+           // cargoSelection.SelectedItem = truckDatabase.CurrentRow.Cells[6].Value;
+            cargoDictionaryKey = truckDatabase.Text;
+        }
+
+        private void EditTruck_Click(object sender, EventArgs e)
+        {
+            if (truckId != null)
+            {
+                Database db = new Database();
+                string query1 = $"UPDATE Truck SET Model = '{modelLine.Text}',Year= '{yearLine.Text}',Odometr = '{odometrLine.Text}',Fuel='{fuelLine.Text}' WHERE Id = '{truckId}'";
+                DoAction(query1, db);
+
+                MessageBox.Show("Edited!");
+                Update("Truck", truckDatabase);
+            }
+            else
+            {
+                MessageBox.Show("Choose row!");
+            }
+        }
+
+        private void DeleteTruck_Click(object sender, EventArgs e)
+        {
+            DeleteRow("Truck",truckId,truckDatabase);
         }
     }
 }

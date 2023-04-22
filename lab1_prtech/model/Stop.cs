@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace lab1_prtech
 {
-    class Stop
+    public class Stop
     {
-        public string Place { get; set; }
-        public string AdditionalInfo { get; set; }
+        public string Info { get; set; }
     }
 }
