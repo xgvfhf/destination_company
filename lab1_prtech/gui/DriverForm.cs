@@ -10,15 +10,15 @@ using System.Windows.Forms;
 
 namespace lab1_prtech
 {
-    public partial class SimpleDriverForm : Form
+    public partial class DriverForm : Form
     {
         Driver RespDriver;
-        public SimpleDriverForm()
+        public DriverForm()
         {
             InitializeComponent();
         }
 
-        public SimpleDriverForm(Driver dr)
+        public DriverForm(Driver dr)
         {
             InitializeComponent();
             RespDriver = dr;

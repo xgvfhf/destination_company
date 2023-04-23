@@ -101,11 +101,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="gui\AdminForm.cs">
+    <Compile Include="AddDriver.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="gui\AdminForm.Designer.cs">
-      <DependentUpon>AdminForm.cs</DependentUpon>
+    <Compile Include="AddDriver.Designer.cs">
+      <DependentUpon>AddDriver.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\ManagerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\ManagerForm.Designer.cs">
+      <DependentUpon>ManagerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="model\Database.cs" />
     <Compile Include="gui\DrivReg.cs">
@@ -136,17 +142,11 @@
     <Compile Include="model\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="gui\SimpleDriverForm.cs">
+    <Compile Include="gui\DriverForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="gui\SimpleDriverForm.Designer.cs">
-      <DependentUpon>SimpleDriverForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="gui\SimpleManagerForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="gui\SimpleManagerForm.Designer.cs">
-      <DependentUpon>SimpleManagerForm.cs</DependentUpon>
+    <Compile Include="gui\DriverForm.Designer.cs">
+      <DependentUpon>DriverForm.cs</DependentUpon>
     </Compile>
     <Compile Include="model\Stop.cs" />
     <Compile Include="WorkersDataSet.Designer.cs">
@@ -154,6 +154,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>WorkersDataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddDriver.resx">
+      <DependentUpon>AddDriver.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="gui\DrivReg.resx">
       <DependentUpon>DrivReg.cs</DependentUpon>
     </EmbeddedResource>
@@ -163,8 +166,8 @@
     <EmbeddedResource Include="gui\ManagerReg.resx">
       <DependentUpon>ManagerReg.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="gui\AdminForm.resx">
-      <DependentUpon>AdminForm.cs</DependentUpon>
+    <EmbeddedResource Include="gui\ManagerForm.resx">
+      <DependentUpon>ManagerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -175,11 +178,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="gui\SimpleDriverForm.resx">
-      <DependentUpon>SimpleDriverForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="gui\SimpleManagerForm.resx">
-      <DependentUpon>SimpleManagerForm.cs</DependentUpon>
+    <EmbeddedResource Include="gui\DriverForm.resx">
+      <DependentUpon>DriverForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

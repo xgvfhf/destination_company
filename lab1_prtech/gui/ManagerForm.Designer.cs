@@ -1,7 +1,7 @@
 ﻿
 namespace lab1_prtech
 {
-    partial class AdminForm
+    partial class ManagerForm
     {
         /// <summary>
         /// Required designer variable.
@@ -92,6 +92,7 @@ namespace lab1_prtech
             this.modelLine = new System.Windows.Forms.TextBox();
             this.yearLine = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.addDriver = new System.Windows.Forms.Button();
             this.desManagement.SuspendLayout();
             this.userManagment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.allStuffDatabase)).BeginInit();
@@ -459,6 +460,7 @@ namespace lab1_prtech
             this.cargoWeightLine.Name = "cargoWeightLine";
             this.cargoWeightLine.Size = new System.Drawing.Size(234, 22);
             this.cargoWeightLine.TabIndex = 1;
+            this.cargoWeightLine.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cargoWeightLine_KeyPress);
             // 
             // tabPage3
             // 
@@ -553,6 +555,7 @@ namespace lab1_prtech
             // 
             // truckManagement
             // 
+            this.truckManagement.Controls.Add(this.addDriver);
             this.truckManagement.Controls.Add(this.Reload);
             this.truckManagement.Controls.Add(this.truckDatabase);
             this.truckManagement.Controls.Add(this.label20);
@@ -580,7 +583,7 @@ namespace lab1_prtech
             // 
             // Reload
             // 
-            this.Reload.Location = new System.Drawing.Point(527, 282);
+            this.Reload.Location = new System.Drawing.Point(455, 304);
             this.Reload.Name = "Reload";
             this.Reload.Size = new System.Drawing.Size(91, 34);
             this.Reload.TabIndex = 22;
@@ -705,6 +708,7 @@ namespace lab1_prtech
             this.fuelLine.Name = "fuelLine";
             this.fuelLine.Size = new System.Drawing.Size(100, 22);
             this.fuelLine.TabIndex = 4;
+            this.fuelLine.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cargoWeightLine_KeyPress);
             // 
             // odometrLine
             // 
@@ -712,6 +716,7 @@ namespace lab1_prtech
             this.odometrLine.Name = "odometrLine";
             this.odometrLine.Size = new System.Drawing.Size(100, 22);
             this.odometrLine.TabIndex = 3;
+            this.odometrLine.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cargoWeightLine_KeyPress);
             // 
             // modelLine
             // 
@@ -726,6 +731,7 @@ namespace lab1_prtech
             this.yearLine.Name = "yearLine";
             this.yearLine.Size = new System.Drawing.Size(100, 22);
             this.yearLine.TabIndex = 1;
+            this.yearLine.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cargoWeightLine_KeyPress);
             // 
             // button1
             // 
@@ -736,14 +742,24 @@ namespace lab1_prtech
             this.button1.Text = "Forum";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // AdminForm
+            // addDriver
+            // 
+            this.addDriver.Location = new System.Drawing.Point(586, 304);
+            this.addDriver.Name = "addDriver";
+            this.addDriver.Size = new System.Drawing.Size(92, 34);
+            this.addDriver.TabIndex = 23;
+            this.addDriver.Text = "add driver";
+            this.addDriver.UseVisualStyleBackColor = true;
+            this.addDriver.Click += new System.EventHandler(this.addDriver_Click);
+            // 
+            // ManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 516);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.desManagement);
-            this.Name = "AdminForm";
+            this.Name = "ManagerForm";
             this.Text = "AdminForm";
             this.Load += new System.EventHandler(this.Main_Load);
             this.desManagement.ResumeLayout(false);
@@ -828,5 +844,6 @@ namespace lab1_prtech
         private System.Windows.Forms.TextBox cargoNameLine;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button Reload;
+        private System.Windows.Forms.Button addDriver;
     }
 }

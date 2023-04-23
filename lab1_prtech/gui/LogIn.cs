@@ -56,18 +56,12 @@ namespace lab1_prtech
                 string selectedId = row.ItemArray[10].ToString();
                 if (dataTable != null)
                 {
-                    switch (selectedId)
-                    {
-                        case "True":
-                            new AdminForm(new Manager() { Login = row.ItemArray[1].ToString(), Password = row.ItemArray[2].ToString(), Name = row.ItemArray[4].ToString(), Surname = row.ItemArray[5].ToString(), PhoneNum = row.ItemArray[6].ToString(), ManLicNum = row.ItemArray[9].ToString(), isAdmin = row.ItemArray[10].ToString() },cargo,destination,truck).Show();
-                            return;
-                        case "False":
-                            new SimpleManagerForm(new Manager() { Login = row.ItemArray[1].ToString(), Password = row.ItemArray[2].ToString(), Name = row.ItemArray[4].ToString(), Surname = row.ItemArray[5].ToString(), PhoneNum = row.ItemArray[6].ToString(), ManLicNum = row.ItemArray[9].ToString(), isAdmin = row.ItemArray[10].ToString() }).Show();
-                            return;
-                        case "":
-                            new SimpleDriverForm(new Driver() { Login = row.ItemArray[1].ToString(), Password = row.ItemArray[2].ToString(), Name = row.ItemArray[4].ToString(), Surname = row.ItemArray[5].ToString(), PhoneNum = row.ItemArray[6].ToString(), DrivLicNum = row.ItemArray[8].ToString(), MedSert = row.ItemArray[7].ToString() }).Show();
-                            return;
-                    }
+                    if (selectedId.Equals(""))                   
+                        new DriverForm(new Driver() { Login = row.ItemArray[1].ToString(), Password = row.ItemArray[2].ToString(), Name = row.ItemArray[4].ToString(), Surname = row.ItemArray[5].ToString(), PhoneNum = row.ItemArray[6].ToString(), DrivLicNum = row.ItemArray[8].ToString(), MedSert = row.ItemArray[7].ToString() }).Show();
+                    
+                    else
+                        new ManagerForm(new Manager() { Login = row.ItemArray[1].ToString(), Password = row.ItemArray[2].ToString(), Name = row.ItemArray[4].ToString(), Surname = row.ItemArray[5].ToString(), PhoneNum = row.ItemArray[6].ToString(), ManLicNum = row.ItemArray[9].ToString(), isAdmin = row.ItemArray[10].ToString() }).Show();
+                    
 
                 }
             }
@@ -82,9 +76,9 @@ namespace lab1_prtech
 
         private void LogIn_Load(object sender, EventArgs e)
         {
-            FillDict("Cargo");
-            FillDict("Destenation");
-            FillDict("Truck");
+            //FillDict("Cargo");
+            //FillDict("Destenation");
+            //FillDict("Truck");
         }
         
         void FillDict(string table)

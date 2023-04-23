@@ -1,7 +1,7 @@
 ﻿
 namespace lab1_prtech
 {
-    partial class SimpleDriverForm
+    partial class DriverForm
     {
         /// <summary>
         /// Required designer variable.

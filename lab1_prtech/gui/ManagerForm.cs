@@ -11,7 +11,7 @@ using System.Data.SqlClient;
 
 namespace lab1_prtech
 {
-    public partial class AdminForm : Form
+    public partial class ManagerForm : Form
     {
         string userId;
         string cargoId;
@@ -25,16 +25,44 @@ namespace lab1_prtech
         Dictionary<string, Cargo> cargo = new Dictionary<string, Cargo>();
         Dictionary<string, Truck> truck = new Dictionary<string, Truck>();
 
-        public AdminForm(Manager man,  Dictionary<string, Cargo> crg, Dictionary<string, Destination> dest, Dictionary<string, Truck> trck)
+        public ManagerForm(Manager man)
         {
             InitializeComponent();
             RespMan = man;
-            Text = man.Name + " " + man.Surname + " administrator";
-            destination = dest;
-            cargo = crg;
-            truck = trck;
+            
+            if (man.isAdmin.Equals("False"))
+            {
+                driverChoise.Visible = false;
+                managerChoise.Visible = false;
+                label1.Visible = false;
+                label2.Visible = false;
+                label3.Visible = false;
+                label4.Visible = false;
+                label5.Visible = false;
+                label6.Visible = false;
+                label7.Visible = false;
+                label8.Visible = false;
+                loginLine.Visible = false;
+                passwordLine.Visible = false;
+                nameLine.Visible = false;
+                surnameLine.Visible = false;
+                phoneNumLine.Visible = false;
+                managerLicNumLine.Visible = false;
+                driverLicNumLine.Visible = false;
+                driverMedSertNumLine.Visible = false;
+                allStuffDatabase.Width = 700;
+                Add.Visible = false;
+                Edit.Visible = false;
+                Delete.Visible = false;
+                Text = man.Name + " " + man.Surname + " manager";
+            }
+            else
+                Text = man.Name + " " + man.Surname + " administrator";
+            //destination = dest;
+            //cargo = crg;
+            //truck = trck;
         }
-        public AdminForm()
+        public ManagerForm()
         {
             InitializeComponent();
            
@@ -43,8 +71,12 @@ namespace lab1_prtech
 
         private void Main_Load(object sender, EventArgs e)
         {
-            cargoSelection.Items.AddRange(cargo.Keys.ToArray());
-            tripSelection.Items.AddRange(destination.Keys.ToArray());
+            
+            Update("Stuff", allStuffDatabase);
+            Update("Cargo", cargoDatabase);
+            Update("Destenation", destinationDatabase);
+            Update("Truck", truckDatabase);
+            ReloadTripCargo();
         }
 
         private void Update_Click(object sender, EventArgs e)
@@ -65,8 +97,8 @@ namespace lab1_prtech
             {
                 Database db = new Database();
 
-                string query1 = $"INSERT INTO Stuff(Login,Password,Status,FirstName,LastName,PhoneNum,MedSert,DrivLicNum)VALUES('{loginLine.Text}','{passwordLine.Text}','{"Driver"}','{nameLine.Text}','{surnameLine.Text}',{phoneNumLine.Text},{driverLicNumLine.Text},{driverMedSertNumLine.Text})";
-                string query2 = $"INSERT INTO Stuff(Login,Password,Status,FirstName,LastName,PhoneNum,ManLicNum)VALUES('{loginLine.Text}','{passwordLine.Text}','{"Manager"}','{nameLine.Text}','{surnameLine.Text}',{phoneNumLine.Text},{managerLicNumLine.Text})";
+                string query1 = $"INSERT INTO Stuff(Login,Password,Status,FirstName,LastName,PhoneNum,MedSert,DrivLicNum) VALUES('{loginLine.Text}','{passwordLine.Text}','{"Driver"}','{nameLine.Text}','{surnameLine.Text}','{phoneNumLine.Text}','{driverLicNumLine.Text}','{driverMedSertNumLine.Text}')";
+                string query2 = $"INSERT INTO Stuff(Login,Password,Status,FirstName,LastName,PhoneNum,ManLicNum) VALUES('{loginLine.Text}','{passwordLine.Text}','{"Manager"}','{nameLine.Text}','{surnameLine.Text}','{phoneNumLine.Text}','{managerLicNumLine.Text}')";
                 if (driverChoise.Checked)
                 {
                     DoAction(query1, db);
@@ -79,13 +111,13 @@ namespace lab1_prtech
                     MessageBox.Show("Added");
                     Update("Stuff", allStuffDatabase);
                 }
-            }
+        }
             catch (Exception)
             {
-                MessageBox.Show("enter all values!");
+                MessageBox.Show("You must enter all values and your login must be unique!");
             }
-            
-        }
+
+}
         
         private void Edit_Click(object sender, EventArgs e)
         {
@@ -289,7 +321,7 @@ namespace lab1_prtech
             if (startPointLine.Text != "" && finishPointLine.Text != "")
             {
                 Database db = new Database();
-                string query1 = $"INSERT INTO Destenation(PointA,PointB,RespMan)VALUES('{startPointLine.Text}','{finishPointLine.Text}','{this.Text}')";
+                string query1 = $"INSERT INTO Destenation(Track,RespMan)VALUES('{startPointLine.Text+"-"+finishPointLine.Text}','{RespMan.Name+" "+RespMan.Surname}')";
                 DoAction(query1, db);
                 
                 MessageBox.Show("Added");
@@ -307,7 +339,7 @@ namespace lab1_prtech
             if (destId != null)
             {
                 Database db = new Database();
-                string query1 = $"UPDATE Destenation SET PointA = '{startPointLine.Text}',PointB = '{finishPointLine.Text}' WHERE Id = '{destId}'";
+                string query1 = $"UPDATE Destenation SET Track = '{startPointLine.Text + "-" + finishPointLine.Text}' WHERE Id = '{destId}'";
                 DoAction(query1, db);
                 
                 MessageBox.Show("Edited!");
@@ -334,44 +366,28 @@ namespace lab1_prtech
 
         private void Reload_Click(object sender, EventArgs e)
         {
-            tripSelection.Items.Clear();
-            cargoSelection.Items.Clear();
-            Database db = new Database();
-            db.open();
-            SqlCommand command1 = new SqlCommand($"SELECT PointA,PointB FROM Destenation ", db.getCon());
-            SqlCommand command2 = new SqlCommand($"SELECT * FROM Cargo ", db.getCon());
-            SqlDataAdapter sqlDataAdapter1 = new SqlDataAdapter(command1);
-            SqlDataAdapter sqlDataAdapter2 = new SqlDataAdapter(command2);
-            DataTable dataTable1 = new DataTable();
-            DataTable dataTable2 = new DataTable();
-            sqlDataAdapter1.Fill(dataTable1);
-            sqlDataAdapter2.Fill(dataTable2);
-            db.close();
-            for (int i = 0; i < dataTable1.Rows.Count; i++)
-            {
-                string pnta = dataTable1.Rows[i][0].ToString();
-                string pntb = dataTable1.Rows[i][1].ToString();
-                tripSelection.Items.Add(pnta+" "+pntb);
-            }
-            for (int i = 0; i < dataTable2.Rows.Count; i++)
-            {
-                string pnta = dataTable2.Rows[i][1].ToString();
-                
-                cargoSelection.Items.Add(pnta);
-            }
-
-
+            ReloadTripCargo();
         }
 
         private void AddTruck_Click(object sender, EventArgs e)
         {
             
                 Database db = new Database();
-                string query1 = $"INSERT INTO Truck(Model,Year,Odometr,Fuel,RespMan)VALUES('{modelLine.Text}','{yearLine.Text}','{odometrLine.Text}','{fuelLine.Text}','{Text}')";
-                DoAction(query1, db);
+                string query1 = $"INSERT INTO Truck(Model,Year,Odometr,Fuel,RespMan)VALUES('{modelLine.Text}','{yearLine.Text}','{odometrLine.Text}','{fuelLine.Text}','{RespMan.Name+" "+RespMan.Surname}')";
+                string query2 = $"INSERT INTO Truck(Model,Year,Odometr,Fuel,Destenation,Cargo,RespMan)VALUES('{modelLine.Text}','{yearLine.Text}','{odometrLine.Text}','{fuelLine.Text}','{tripSelection.SelectedItem.ToString()}','{cargoSelection.SelectedItem.ToString()}','{RespMan.Name + " " + RespMan.Surname}')";
 
+            if (tripSelection.SelectedItem != null && cargoSelection.SelectedItem != null)
+            {
+                DoAction(query2, db);
                 MessageBox.Show("Added");
                 Update("Truck", truckDatabase);
+            }
+            else
+            {
+                DoAction(query1, db);
+                MessageBox.Show("Added");
+                Update("Truck", truckDatabase);
+            }
 
         }
 
@@ -386,7 +402,34 @@ namespace lab1_prtech
            // cargoSelection.SelectedItem = truckDatabase.CurrentRow.Cells[6].Value;
             cargoDictionaryKey = truckDatabase.Text;
         }
-
+        void ReloadTripCargo()
+        {
+            tripSelection.Items.Clear();
+            cargoSelection.Items.Clear();
+            Database db = new Database();
+            db.open();
+            SqlCommand command1 = new SqlCommand($"SELECT Track FROM Destenation WHERE RespDriver IS NULL ", db.getCon());
+            SqlCommand command2 = new SqlCommand($"SELECT CargoName FROM Cargo ", db.getCon());
+            SqlDataAdapter sqlDataAdapter1 = new SqlDataAdapter(command1);
+            SqlDataAdapter sqlDataAdapter2 = new SqlDataAdapter(command2);
+            DataTable dataTable1 = new DataTable();
+            DataTable dataTable2 = new DataTable();
+            sqlDataAdapter1.Fill(dataTable1);
+            sqlDataAdapter2.Fill(dataTable2);
+            db.close();
+            if (dataTable1 != null && dataTable2 != null)
+            {
+                for (int i = 0; i < dataTable1.Rows.Count; i++)
+                {
+                    tripSelection.Items.Add(dataTable1.Rows[i][0].ToString());
+                }
+                for (int i = 0; i < dataTable2.Rows.Count; i++)
+                {
+                    cargoSelection.Items.Add(dataTable2.Rows[i][0].ToString());
+                }
+            }
+            
+        }
         private void EditTruck_Click(object sender, EventArgs e)
         {
             if (truckId != null)
@@ -407,6 +450,21 @@ namespace lab1_prtech
         private void DeleteTruck_Click(object sender, EventArgs e)
         {
             DeleteRow("Truck",truckId,truckDatabase);
+        }
+
+        private void cargoWeightLine_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            var txtbox = sender as TextBox;
+            char symb = e.KeyChar;
+            if (symb != 8 && !Char.IsDigit(symb))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void addDriver_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
