@@ -74,6 +74,7 @@ namespace lab1_prtech
             this.finishPointLine = new System.Windows.Forms.TextBox();
             this.startPointLine = new System.Windows.Forms.TextBox();
             this.truckManagement = new System.Windows.Forms.TabPage();
+            this.addDriver = new System.Windows.Forms.Button();
             this.Reload = new System.Windows.Forms.Button();
             this.truckDatabase = new System.Windows.Forms.DataGridView();
             this.label20 = new System.Windows.Forms.Label();
@@ -92,7 +93,14 @@ namespace lab1_prtech
             this.modelLine = new System.Windows.Forms.TextBox();
             this.yearLine = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.addDriver = new System.Windows.Forms.Button();
+            this.departureDate = new System.Windows.Forms.DateTimePicker();
+            this.arrivalDate = new System.Windows.Forms.DateTimePicker();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.filter = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.filterCondition = new System.Windows.Forms.ComboBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.desManagement.SuspendLayout();
             this.userManagment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.allStuffDatabase)).BeginInit();
@@ -464,6 +472,14 @@ namespace lab1_prtech
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.button2);
+            this.tabPage3.Controls.Add(this.filterCondition);
+            this.tabPage3.Controls.Add(this.label22);
+            this.tabPage3.Controls.Add(this.filter);
+            this.tabPage3.Controls.Add(this.label21);
+            this.tabPage3.Controls.Add(this.label18);
+            this.tabPage3.Controls.Add(this.arrivalDate);
+            this.tabPage3.Controls.Add(this.departureDate);
             this.tabPage3.Controls.Add(this.destinationDatabase);
             this.tabPage3.Controls.Add(this.DeleteDestenation);
             this.tabPage3.Controls.Add(this.EditDestenation);
@@ -493,7 +509,7 @@ namespace lab1_prtech
             // 
             // DeleteDestenation
             // 
-            this.DeleteDestenation.Location = new System.Drawing.Point(644, 212);
+            this.DeleteDestenation.Location = new System.Drawing.Point(657, 318);
             this.DeleteDestenation.Name = "DeleteDestenation";
             this.DeleteDestenation.Size = new System.Drawing.Size(93, 30);
             this.DeleteDestenation.TabIndex = 9;
@@ -503,7 +519,7 @@ namespace lab1_prtech
             // 
             // EditDestenation
             // 
-            this.EditDestenation.Location = new System.Drawing.Point(534, 212);
+            this.EditDestenation.Location = new System.Drawing.Point(547, 318);
             this.EditDestenation.Name = "EditDestenation";
             this.EditDestenation.Size = new System.Drawing.Size(93, 30);
             this.EditDestenation.TabIndex = 8;
@@ -513,7 +529,7 @@ namespace lab1_prtech
             // 
             // AddDestenation
             // 
-            this.AddDestenation.Location = new System.Drawing.Point(420, 212);
+            this.AddDestenation.Location = new System.Drawing.Point(433, 318);
             this.AddDestenation.Name = "AddDestenation";
             this.AddDestenation.Size = new System.Drawing.Size(93, 30);
             this.AddDestenation.TabIndex = 6;
@@ -524,7 +540,7 @@ namespace lab1_prtech
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(430, 149);
+            this.label17.Location = new System.Drawing.Point(430, 179);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(52, 17);
             this.label17.TabIndex = 5;
@@ -533,7 +549,7 @@ namespace lab1_prtech
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(430, 108);
+            this.label16.Location = new System.Drawing.Point(430, 138);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(52, 17);
             this.label16.TabIndex = 4;
@@ -541,14 +557,14 @@ namespace lab1_prtech
             // 
             // finishPointLine
             // 
-            this.finishPointLine.Location = new System.Drawing.Point(547, 149);
+            this.finishPointLine.Location = new System.Drawing.Point(547, 179);
             this.finishPointLine.Name = "finishPointLine";
             this.finishPointLine.Size = new System.Drawing.Size(172, 22);
             this.finishPointLine.TabIndex = 3;
             // 
             // startPointLine
             // 
-            this.startPointLine.Location = new System.Drawing.Point(547, 108);
+            this.startPointLine.Location = new System.Drawing.Point(547, 138);
             this.startPointLine.Name = "startPointLine";
             this.startPointLine.Size = new System.Drawing.Size(172, 22);
             this.startPointLine.TabIndex = 2;
@@ -580,6 +596,16 @@ namespace lab1_prtech
             this.truckManagement.TabIndex = 3;
             this.truckManagement.Text = "Truck management";
             this.truckManagement.UseVisualStyleBackColor = true;
+            // 
+            // addDriver
+            // 
+            this.addDriver.Location = new System.Drawing.Point(586, 304);
+            this.addDriver.Name = "addDriver";
+            this.addDriver.Size = new System.Drawing.Size(92, 34);
+            this.addDriver.TabIndex = 23;
+            this.addDriver.Text = "add driver";
+            this.addDriver.UseVisualStyleBackColor = true;
+            this.addDriver.Click += new System.EventHandler(this.addDriver_Click);
             // 
             // Reload
             // 
@@ -741,16 +767,77 @@ namespace lab1_prtech
             this.button1.TabIndex = 1;
             this.button1.Text = "Forum";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // addDriver
+            // departureDate
             // 
-            this.addDriver.Location = new System.Drawing.Point(586, 304);
-            this.addDriver.Name = "addDriver";
-            this.addDriver.Size = new System.Drawing.Size(92, 34);
-            this.addDriver.TabIndex = 23;
-            this.addDriver.Text = "add driver";
-            this.addDriver.UseVisualStyleBackColor = true;
-            this.addDriver.Click += new System.EventHandler(this.addDriver_Click);
+            this.departureDate.Location = new System.Drawing.Point(547, 219);
+            this.departureDate.Name = "departureDate";
+            this.departureDate.Size = new System.Drawing.Size(172, 22);
+            this.departureDate.TabIndex = 20;
+            // 
+            // arrivalDate
+            // 
+            this.arrivalDate.Location = new System.Drawing.Point(547, 259);
+            this.arrivalDate.Name = "arrivalDate";
+            this.arrivalDate.Size = new System.Drawing.Size(172, 22);
+            this.arrivalDate.TabIndex = 21;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(430, 224);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(70, 17);
+            this.label18.TabIndex = 22;
+            this.label18.Text = "departure";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(430, 259);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(47, 17);
+            this.label21.TabIndex = 23;
+            this.label21.Text = "arrival";
+            // 
+            // filter
+            // 
+            this.filter.Location = new System.Drawing.Point(418, 53);
+            this.filter.Name = "filter";
+            this.filter.Size = new System.Drawing.Size(172, 22);
+            this.filter.TabIndex = 24;
+            this.filter.TextChanged += new System.EventHandler(this.filter_TextChanged);
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(599, 56);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(58, 17);
+            this.label22.TabIndex = 25;
+            this.label22.Text = "filter by:";
+            // 
+            // filterCondition
+            // 
+            this.filterCondition.FormattingEnabled = true;
+            this.filterCondition.Items.AddRange(new object[] {
+            "departure date",
+            "arrival date",
+            "carrier"});
+            this.filterCondition.Location = new System.Drawing.Point(663, 53);
+            this.filterCondition.Name = "filterCondition";
+            this.filterCondition.Size = new System.Drawing.Size(96, 24);
+            this.filterCondition.TabIndex = 26;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(547, 355);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(93, 29);
+            this.button2.TabIndex = 27;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // ManagerForm
             // 
@@ -845,5 +932,13 @@ namespace lab1_prtech
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button Reload;
         private System.Windows.Forms.Button addDriver;
+        private System.Windows.Forms.ComboBox filterCondition;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox filter;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.DateTimePicker arrivalDate;
+        private System.Windows.Forms.DateTimePicker departureDate;
+        private System.Windows.Forms.Button button2;
     }
 }

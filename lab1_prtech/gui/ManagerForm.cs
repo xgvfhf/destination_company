@@ -105,12 +105,14 @@ namespace lab1_prtech
                     MessageBox.Show("Added");
                     Update("Stuff", allStuffDatabase);
                 }
-                else
+                else if (managerChoise.Checked)
                 {
                     DoAction(query2, db);
                     MessageBox.Show("Added");
                     Update("Stuff", allStuffDatabase);
                 }
+                else
+                    MessageBox.Show("Enter all values!");
         }
             catch (Exception)
             {
@@ -318,10 +320,10 @@ namespace lab1_prtech
 
         private void AddDestenation_Click(object sender, EventArgs e)
         {
-            if (startPointLine.Text != "" && finishPointLine.Text != "")
+            if (startPointLine.Text != "" && finishPointLine.Text != "" && departureDate != null && arrivalDate != null)
             {
                 Database db = new Database();
-                string query1 = $"INSERT INTO Destenation(Track,RespMan)VALUES('{startPointLine.Text+"-"+finishPointLine.Text}','{RespMan.Name+" "+RespMan.Surname}')";
+                string query1 = $"INSERT INTO Destenation(Track,RespMan,Departure,Arrival)VALUES('{startPointLine.Text+"-"+finishPointLine.Text}','{RespMan.Name+" "+RespMan.Surname}','{departureDate.Value}','{arrivalDate.Value}')";
                 DoAction(query1, db);
                 
                 MessageBox.Show("Added");
@@ -339,7 +341,7 @@ namespace lab1_prtech
             if (destId != null)
             {
                 Database db = new Database();
-                string query1 = $"UPDATE Destenation SET Track = '{startPointLine.Text + "-" + finishPointLine.Text}' WHERE Id = '{destId}'";
+                string query1 = $"UPDATE Destenation SET Track = '{startPointLine.Text + "-" + finishPointLine.Text}',Departure='{departureDate.Value}',Arrival='{arrivalDate.Value}' WHERE Id = '{destId}'";
                 DoAction(query1, db);
                 
                 MessageBox.Show("Edited!");
@@ -354,14 +356,28 @@ namespace lab1_prtech
         private void destinationDatabase_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             destId = destinationDatabase.CurrentRow.Cells[0].Value.ToString();
-            startPointLine.Text = destinationDatabase.CurrentRow.Cells[1].Value.ToString();
-            finishPointLine.Text = destinationDatabase.CurrentRow.Cells[2].Value.ToString();
-            
+            var arr = destinationDatabase.CurrentRow.Cells[1].Value.ToString().Split('-');
+            startPointLine.Text = arr[0];
+            finishPointLine.Text = arr[1];
+            departureDate.Value = DateTime.Parse(destinationDatabase.CurrentRow.Cells[5].Value.ToString());
+            arrivalDate.Value = DateTime.Parse(destinationDatabase.CurrentRow.Cells[6].Value.ToString());
         }
 
         private void DeleteDestenation_Click(object sender, EventArgs e)
         {
-            DeleteRow("Destenation",destId,destinationDatabase);
+            if (destinationDatabase.CurrentRow.Cells[5].Value.ToString() == null && RespMan.isAdmin.Equals("False"))
+            {
+                DeleteRow("Destenation", destId, destinationDatabase);
+            }
+            else if (RespMan.isAdmin.Equals("True"))
+            {
+                DeleteRow("Destenation", destId, destinationDatabase);
+            }
+            else
+                MessageBox.Show("This order's already in progress!");
+
+            
+            
         }
 
         private void Reload_Click(object sender, EventArgs e)
@@ -370,24 +386,32 @@ namespace lab1_prtech
         }
 
         private void AddTruck_Click(object sender, EventArgs e)
-        {
-            
+        {                
+            try
+            {
                 Database db = new Database();
-                string query1 = $"INSERT INTO Truck(Model,Year,Odometr,Fuel,RespMan)VALUES('{modelLine.Text}','{yearLine.Text}','{odometrLine.Text}','{fuelLine.Text}','{RespMan.Name+" "+RespMan.Surname}')";
-                string query2 = $"INSERT INTO Truck(Model,Year,Odometr,Fuel,Destenation,Cargo,RespMan)VALUES('{modelLine.Text}','{yearLine.Text}','{odometrLine.Text}','{fuelLine.Text}','{tripSelection.SelectedItem.ToString()}','{cargoSelection.SelectedItem.ToString()}','{RespMan.Name + " " + RespMan.Surname}')";
-
-            if (tripSelection.SelectedItem != null && cargoSelection.SelectedItem != null)
-            {
-                DoAction(query2, db);
-                MessageBox.Show("Added");
-                Update("Truck", truckDatabase);
+                string query1 = $"INSERT INTO Truck(Model,Year,Odometr,Fuel,RespMan)VALUES('{modelLine.Text}','{yearLine.Text}','{odometrLine.Text}','{fuelLine.Text}','{RespMan.Name + " " + RespMan.Surname}')";
+                string query2 = $"INSERT INTO Truck(Model,Year,Odometr,Fuel,Destenation,Cargo,RespMan)VALUES('{modelLine.Text}','{yearLine.Text}','{odometrLine.Text}','{fuelLine.Text}','{tripSelection.SelectedItem}','{cargoSelection.SelectedItem}','{RespMan.Name + " " + RespMan.Surname}')";
+                if (tripSelection.SelectedItem != null && cargoSelection.SelectedItem != null && modelLine.Text != "" && yearLine.Text != "" && fuelLine.Text != "" && odometrLine.Text != "")
+                {
+                    DoAction(query2, db);
+                    MessageBox.Show("Added");
+                    Update("Truck", truckDatabase);
+                }
+                else if (modelLine.Text != "" && yearLine.Text != "" && fuelLine.Text != "" && odometrLine.Text != "")
+                {
+                    DoAction(query1, db);
+                    MessageBox.Show("Added");
+                    Update("Truck", truckDatabase);
+                }
+                else
+                    MessageBox.Show("Enter all values!");
             }
-            else
+            catch (Exception)
             {
-                DoAction(query1, db);
-                MessageBox.Show("Added");
-                Update("Truck", truckDatabase);
+                MessageBox.Show("Enter all values!");
             }
+            
 
         }
 
@@ -409,7 +433,7 @@ namespace lab1_prtech
             Database db = new Database();
             db.open();
             SqlCommand command1 = new SqlCommand($"SELECT Track FROM Destenation WHERE RespDriver IS NULL ", db.getCon());
-            SqlCommand command2 = new SqlCommand($"SELECT CargoName FROM Cargo ", db.getCon());
+            SqlCommand command2 = new SqlCommand($"SELECT CargoName FROM Cargo  ", db.getCon());
             SqlDataAdapter sqlDataAdapter1 = new SqlDataAdapter(command1);
             SqlDataAdapter sqlDataAdapter2 = new SqlDataAdapter(command2);
             DataTable dataTable1 = new DataTable();
@@ -427,6 +451,7 @@ namespace lab1_prtech
                 {
                     cargoSelection.Items.Add(dataTable2.Rows[i][0].ToString());
                 }
+                MessageBox.Show("Comboboxes updated!");
             }
             
         }
@@ -449,7 +474,17 @@ namespace lab1_prtech
 
         private void DeleteTruck_Click(object sender, EventArgs e)
         {
-            DeleteRow("Truck",truckId,truckDatabase);
+            if (truckDatabase.CurrentRow.Cells[8].Value.ToString() == null && RespMan.isAdmin.Equals("False"))
+            {
+                DeleteRow("Truck", truckId, truckDatabase);
+            }
+            else if (RespMan.isAdmin.Equals("True"))
+            {
+                DeleteRow("Truck", truckId, truckDatabase);
+            }
+            else
+                MessageBox.Show("This order's already in progress!");
+            
         }
 
         private void cargoWeightLine_KeyPress(object sender, KeyPressEventArgs e)
@@ -464,7 +499,62 @@ namespace lab1_prtech
 
         private void addDriver_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (tripSelection.SelectedItem != null && cargoSelection.SelectedItem != null && modelLine.Text != "" && yearLine.Text != "" && fuelLine.Text != "" && odometrLine.Text != "")
+                {
+                    new AddDriver(new Truck() { Year = yearLine.Text, Model = modelLine.Text, Odometr = odometrLine.Text, Fuel = fuelLine.Text, Destination = new Destination() { Track = tripSelection.SelectedItem.ToString() }, Cargo = new Cargo() { CargoName = cargoSelection.SelectedItem.ToString() }, RespManager = RespMan }).Show();
+                }
+                else
+                    MessageBox.Show("Enter all values!");
+            }
+            catch (Exception)
+            {
 
+                MessageBox.Show("Enter all values!");
+            }
+        }
+        void ShowData(DataGridView data,string query)
+        {
+            Database db = new Database();
+            db.open();
+            SqlCommand command = new SqlCommand(query, db.getCon());
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(command);
+            DataTable dataTable = new DataTable();
+            sqlDataAdapter.Fill(dataTable);
+            data.DataSource = dataTable;
+            db.close();
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new Chat(Text).Show();
+        }
+
+        private void filter_TextChanged(object sender, EventArgs e)
+        {
+            if (filterCondition.SelectedItem != null)
+            {
+                if (filterCondition.SelectedItem.ToString().Equals("departure date"))
+                {
+                    string query = $"SELECT * FROM Destenation WHERE Departure LIKE '{filter.Text + "%"}'";
+                    ShowData(destinationDatabase, query);
+                }
+                else if (filterCondition.SelectedItem.ToString().Equals("arrival date"))
+                {
+                    string query = $"SELECT * FROM Destenation WHERE Arrival LIKE '{filter.Text + "%"}'";
+                    ShowData(destinationDatabase, query);
+                }
+                else if (filterCondition.SelectedItem.ToString().Equals("carrier"))
+                {
+                    string query = $"SELECT * FROM Destenation WHERE RespDriver LIKE '{filter.Text + "%"}'";
+                    ShowData(destinationDatabase, query);
+                }
+                else
+                    MessageBox.Show("Wrong value!");
+
+            }
+            else
+                MessageBox.Show("Choose filter condition!");
         }
     }
 }

@@ -29,22 +29,23 @@ namespace lab1_prtech
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Drivers = new System.Windows.Forms.DataGridView();
             this.Add = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Drivers)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // Drivers
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(26, 45);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(420, 278);
-            this.dataGridView1.TabIndex = 0;
+            this.Drivers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Drivers.Location = new System.Drawing.Point(26, 45);
+            this.Drivers.MultiSelect = false;
+            this.Drivers.Name = "Drivers";
+            this.Drivers.RowHeadersWidth = 51;
+            this.Drivers.RowTemplate.Height = 24;
+            this.Drivers.Size = new System.Drawing.Size(420, 278);
+            this.Drivers.TabIndex = 0;
+            this.Drivers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Drivers_CellClick);
             // 
             // Add
             // 
@@ -54,6 +55,7 @@ namespace lab1_prtech
             this.Add.TabIndex = 1;
             this.Add.Text = "Add";
             this.Add.UseVisualStyleBackColor = true;
+            this.Add.Click += new System.EventHandler(this.Add_Click);
             // 
             // label1
             // 
@@ -71,10 +73,11 @@ namespace lab1_prtech
             this.ClientSize = new System.Drawing.Size(481, 403);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Add);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.Drivers);
             this.Name = "AddDriver";
             this.Text = "AddDriver";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.AddDriver_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.Drivers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -82,7 +85,7 @@ namespace lab1_prtech
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView Drivers;
         private System.Windows.Forms.Button Add;
         private System.Windows.Forms.Label label1;
     }

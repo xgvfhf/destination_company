@@ -101,10 +101,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddDriver.cs">
+    <Compile Include="AddStop.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddDriver.Designer.cs">
+    <Compile Include="AddStop.Designer.cs">
+      <DependentUpon>AddStop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\Chat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\Chat.Designer.cs">
+      <DependentUpon>Chat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\AddDriver.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\AddDriver.Designer.cs">
       <DependentUpon>AddDriver.cs</DependentUpon>
     </Compile>
     <Compile Include="gui\ManagerForm.cs">
@@ -148,13 +160,18 @@
     <Compile Include="gui\DriverForm.Designer.cs">
       <DependentUpon>DriverForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="model\Stop.cs" />
     <Compile Include="WorkersDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>WorkersDataSet.xsd</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddDriver.resx">
+    <EmbeddedResource Include="AddStop.resx">
+      <DependentUpon>AddStop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\Chat.resx">
+      <DependentUpon>Chat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\AddDriver.resx">
       <DependentUpon>AddDriver.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gui\DrivReg.resx">

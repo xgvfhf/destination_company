@@ -10,15 +10,13 @@ namespace lab1_prtech
         {
 
         }
-        public Destination(string pnta, string pntb, Stop st)
+        
+        public Destination(string track)
         {
-            PointA = pnta;
-            PointB = pntb;
-            stops.Add(st);    
+            Track = track;             
         }
-        public string PointA { get; set; }
-        public string PointB { get; set; }
+        public string Track { get; set; }
         public Manager RespMan { get; set; }
-        public List<Stop> stops = new List<Stop>();
+        
     }
 }

@@ -81,39 +81,7 @@ namespace lab1_prtech
             //FillDict("Truck");
         }
         
-        void FillDict(string table)
-        {
-            string query = $"SELECT * FROM {table}";
-            Database db = new Database();
-            SqlCommand command = new SqlCommand(query, db.getCon());
-            db.open();
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(command);
-            DataTable dataTable = new DataTable();
-            sqlDataAdapter.Fill(dataTable);
-
-            if (dataTable != null)
-            {
-                for (int i = 0; i < dataTable.Rows.Count; i++)
-                {
-                    switch (table)
-                    {
-                        case "Cargo":
-                            cargo.Add(dataTable.Rows[i][1].ToString(), new Cargo() { CargoName = dataTable.Rows[i][1].ToString(), Weight = dataTable.Rows[i][2].ToString(), Products = dataTable.Rows[i][3].ToString() });
-                            break;
-                        case "Destenation":
-                            destination.Add(dataTable.Rows[i][1].ToString() + "-" + dataTable.Rows[i][2].ToString(), new Destination(dataTable.Rows[i][1].ToString(), dataTable.Rows[i][2].ToString(), new Stop() { Info = dataTable.Rows[i][3].ToString() ?? "" }));
-                            break;
-                        case "Truck":
-                            //truck.Add(dataTable.Rows[i][1].ToString(), new Truck() { Model = dataTable.Rows[i][1].ToString(), Year = dataTable.Rows[i][2].ToString(), Odometr = dataTable.Rows[i][3].ToString(),Fuel = dataTable.Rows[i][4].ToString(),Cargo = cargo[dataTable.Rows[i][5].ToString()],Destination = destination[dataTable.Rows[i][6].ToString()] });
-                            break;
-
-                    }
-
-
-                }
-            }
-            
-        }
+        
         private void DriverChoise_CheckedChanged(object sender, EventArgs e)
         {
             var snd = sender as RadioButton;
