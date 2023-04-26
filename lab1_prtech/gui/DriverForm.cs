@@ -58,7 +58,7 @@ namespace lab1_prtech
             Database db = new Database();
             db.open();
             SqlCommand command1 = new SqlCommand($"SELECT Track FROM Destenation WHERE RespDriver IS NULL ", db.getCon());
-            SqlCommand command2 = new SqlCommand($"SELECT Model FROM Truck", db.getCon());
+            SqlCommand command2 = new SqlCommand($"SELECT Model FROM Truck WHERE RespDriv IS NULL", db.getCon());
             SqlDataAdapter sqlDataAdapter1 = new SqlDataAdapter(command1);
             SqlDataAdapter sqlDataAdapter2 = new SqlDataAdapter(command2);
             DataTable dataTable1 = new DataTable();
@@ -84,16 +84,21 @@ namespace lab1_prtech
             try
             {
 
+                if (truckSelection.SelectedItem != null)
+                {
+                    string query2 = $"UPDATE Truck SET RespDriv = '{RespDriver.Name + " " + RespDriver.Surname}' WHERE Model = '{truckSelection.SelectedItem.ToString()}'";
+                    Database db = new Database();
+                    SqlCommand command2 = new SqlCommand(query2, db.getCon());
 
-                string query2 = $"UPDATE Truck SET RespDriv = '{RespDriver.Name + " " + RespDriver.Surname}' WHERE Model = '{truckSelection.SelectedItem.ToString()}'";
-                Database db = new Database();
-                SqlCommand command2 = new SqlCommand(query2, db.getCon());
+                    db.open();
+                    command2.ExecuteNonQuery();
+                    db.close();
+                    MessageBox.Show("Truck selected!");
+                }
+                else
+                    MessageBox.Show("Choose truck!");
 
-                db.open();
-                command2.ExecuteNonQuery();
-                db.close();
-                MessageBox.Show("Truck selected!");
-            }
+                }
             catch (Exception)
             {
 
@@ -110,7 +115,13 @@ namespace lab1_prtech
         {
             try
             {
-                new AddStop(new Destination() { Track = tripSelection.SelectedItem.ToString() }).Show();
+                if (tripSelection.SelectedItem != null)
+                {
+                    new AddStop(new Destination() { Track = tripSelection.SelectedItem.ToString() }).Show();
+                }
+                else
+                    MessageBox.Show("Enter trip!");
+                
             }
             catch (Exception)
             {

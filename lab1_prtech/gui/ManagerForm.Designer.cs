@@ -65,6 +65,14 @@ namespace lab1_prtech
             this.cargoProductLine = new System.Windows.Forms.TextBox();
             this.cargoWeightLine = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
+            this.filterCondition = new System.Windows.Forms.ComboBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.filter = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.arrivalDate = new System.Windows.Forms.DateTimePicker();
+            this.departureDate = new System.Windows.Forms.DateTimePicker();
             this.destinationDatabase = new System.Windows.Forms.DataGridView();
             this.DeleteDestenation = new System.Windows.Forms.Button();
             this.EditDestenation = new System.Windows.Forms.Button();
@@ -93,14 +101,7 @@ namespace lab1_prtech
             this.modelLine = new System.Windows.Forms.TextBox();
             this.yearLine = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.departureDate = new System.Windows.Forms.DateTimePicker();
-            this.arrivalDate = new System.Windows.Forms.DateTimePicker();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.filter = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.filterCondition = new System.Windows.Forms.ComboBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.desManagement.SuspendLayout();
             this.userManagment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.allStuffDatabase)).BeginInit();
@@ -360,6 +361,7 @@ namespace lab1_prtech
             // 
             // carManagement
             // 
+            this.carManagement.Controls.Add(this.button3);
             this.carManagement.Controls.Add(this.cargoNameLine);
             this.carManagement.Controls.Add(this.label13);
             this.carManagement.Controls.Add(this.cargoDatabase);
@@ -422,7 +424,7 @@ namespace lab1_prtech
             this.EditCargo.Name = "EditCargo";
             this.EditCargo.Size = new System.Drawing.Size(93, 30);
             this.EditCargo.TabIndex = 11;
-            this.EditCargo.Text = "update";
+            this.EditCargo.Text = "edit";
             this.EditCargo.UseVisualStyleBackColor = true;
             this.EditCargo.Click += new System.EventHandler(this.EditCargo_Click);
             // 
@@ -496,6 +498,77 @@ namespace lab1_prtech
             this.tabPage3.Text = "Destination management";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(547, 355);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(93, 29);
+            this.button2.TabIndex = 27;
+            this.button2.Text = "Update";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // filterCondition
+            // 
+            this.filterCondition.FormattingEnabled = true;
+            this.filterCondition.Items.AddRange(new object[] {
+            "departure date",
+            "arrival date",
+            "carrier"});
+            this.filterCondition.Location = new System.Drawing.Point(663, 53);
+            this.filterCondition.Name = "filterCondition";
+            this.filterCondition.Size = new System.Drawing.Size(96, 24);
+            this.filterCondition.TabIndex = 26;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(599, 56);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(58, 17);
+            this.label22.TabIndex = 25;
+            this.label22.Text = "filter by:";
+            // 
+            // filter
+            // 
+            this.filter.Location = new System.Drawing.Point(418, 53);
+            this.filter.Name = "filter";
+            this.filter.Size = new System.Drawing.Size(172, 22);
+            this.filter.TabIndex = 24;
+            this.filter.TextChanged += new System.EventHandler(this.filter_TextChanged);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(430, 259);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(47, 17);
+            this.label21.TabIndex = 23;
+            this.label21.Text = "arrival";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(430, 224);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(70, 17);
+            this.label18.TabIndex = 22;
+            this.label18.Text = "departure";
+            // 
+            // arrivalDate
+            // 
+            this.arrivalDate.Location = new System.Drawing.Point(547, 259);
+            this.arrivalDate.Name = "arrivalDate";
+            this.arrivalDate.Size = new System.Drawing.Size(172, 22);
+            this.arrivalDate.TabIndex = 21;
+            // 
+            // departureDate
+            // 
+            this.departureDate.Location = new System.Drawing.Point(547, 219);
+            this.departureDate.Name = "departureDate";
+            this.departureDate.Size = new System.Drawing.Size(172, 22);
+            this.departureDate.TabIndex = 20;
+            // 
             // destinationDatabase
             // 
             this.destinationDatabase.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -523,7 +596,7 @@ namespace lab1_prtech
             this.EditDestenation.Name = "EditDestenation";
             this.EditDestenation.Size = new System.Drawing.Size(93, 30);
             this.EditDestenation.TabIndex = 8;
-            this.EditDestenation.Text = "update";
+            this.EditDestenation.Text = "edit";
             this.EditDestenation.UseVisualStyleBackColor = true;
             this.EditDestenation.Click += new System.EventHandler(this.EditDestenation_Click);
             // 
@@ -769,75 +842,15 @@ namespace lab1_prtech
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // departureDate
+            // button3
             // 
-            this.departureDate.Location = new System.Drawing.Point(547, 219);
-            this.departureDate.Name = "departureDate";
-            this.departureDate.Size = new System.Drawing.Size(172, 22);
-            this.departureDate.TabIndex = 20;
-            // 
-            // arrivalDate
-            // 
-            this.arrivalDate.Location = new System.Drawing.Point(547, 259);
-            this.arrivalDate.Name = "arrivalDate";
-            this.arrivalDate.Size = new System.Drawing.Size(172, 22);
-            this.arrivalDate.TabIndex = 21;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(430, 224);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(70, 17);
-            this.label18.TabIndex = 22;
-            this.label18.Text = "departure";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(430, 259);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(47, 17);
-            this.label21.TabIndex = 23;
-            this.label21.Text = "arrival";
-            // 
-            // filter
-            // 
-            this.filter.Location = new System.Drawing.Point(418, 53);
-            this.filter.Name = "filter";
-            this.filter.Size = new System.Drawing.Size(172, 22);
-            this.filter.TabIndex = 24;
-            this.filter.TextChanged += new System.EventHandler(this.filter_TextChanged);
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(599, 56);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(58, 17);
-            this.label22.TabIndex = 25;
-            this.label22.Text = "filter by:";
-            // 
-            // filterCondition
-            // 
-            this.filterCondition.FormattingEnabled = true;
-            this.filterCondition.Items.AddRange(new object[] {
-            "departure date",
-            "arrival date",
-            "carrier"});
-            this.filterCondition.Location = new System.Drawing.Point(663, 53);
-            this.filterCondition.Name = "filterCondition";
-            this.filterCondition.Size = new System.Drawing.Size(96, 24);
-            this.filterCondition.TabIndex = 26;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(547, 355);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(93, 29);
-            this.button2.TabIndex = 27;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button3.Location = new System.Drawing.Point(552, 366);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(93, 28);
+            this.button3.TabIndex = 18;
+            this.button3.Text = "update";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // ManagerForm
             // 
@@ -940,5 +953,6 @@ namespace lab1_prtech
         private System.Windows.Forms.DateTimePicker arrivalDate;
         private System.Windows.Forms.DateTimePicker departureDate;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }

@@ -44,12 +44,12 @@ namespace lab1_prtech
 
         private void Add_Click(object sender, EventArgs e)
         {
+
             try
             {
-                
-                string query1 = $"INSERT INTO Truck(Model,Year,Odometr,Fuel,Destenation,Cargo,RespMan,RespDriv)VALUES('{selectedTruck.Model}','{selectedTruck.Year}','{selectedTruck.Odometr}','{selectedTruck.Fuel}','{selectedTruck.Destination.Track}','{selectedTruck.Cargo.CargoName}','{selectedTruck.RespManager.Name + " " + selectedTruck.RespManager.Surname}','{RespDriver.Name+" "+RespDriver.Surname}')";
+                string query1 = $"INSERT INTO Truck(Model,Year,Odometr,Fuel,Destenation,Cargo,RespMan,RespDriv)VALUES('{selectedTruck.Model}','{selectedTruck.Year}','{selectedTruck.Odometr}','{selectedTruck.Fuel}','{selectedTruck.Destination.Track}','{selectedTruck.Cargo.CargoName}','{selectedTruck.RespManager.Name + " " + selectedTruck.RespManager.Surname}','{RespDriver.Name + " " + RespDriver.Surname}')";
                 string query2 = $"UPDATE Destenation SET RespDriver = '{RespDriver.Name + " " + RespDriver.Surname}' WHERE Track = '{selectedTruck.Destination.Track}'";
-                string query3 = $"UPDATE Cargo SET RespDriver = '{RespDriver.Name + " " + RespDriver.Surname}' WHERE Track = '{selectedTruck.Destination.Track}'";
+                string query3 = $"UPDATE Cargo SET RespDriver = '{RespDriver.Name + " " + RespDriver.Surname}' WHERE CargoName = '{selectedTruck.Cargo.CargoName}'";
                 Database db = new Database();
                 SqlCommand command1 = new SqlCommand(query1, db.getCon());
                 SqlCommand command2 = new SqlCommand(query2, db.getCon());
@@ -59,12 +59,15 @@ namespace lab1_prtech
                 command2.ExecuteNonQuery();
                 command3.ExecuteNonQuery();
                 db.close();
+                MessageBox.Show("Added!");
             }
             catch (Exception)
             {
-
                 MessageBox.Show("Already in table!");
             }
+                
+            
+           
         }
     }
 }

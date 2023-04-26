@@ -315,7 +315,17 @@ namespace lab1_prtech
 
         private void DeleteCargo_Click(object sender, EventArgs e)
         {
-            DeleteRow("Cargo", cargoId, cargoDatabase);
+            if (cargoDatabase.CurrentRow.Cells[4].Value.ToString() == null && RespMan.isAdmin.Equals("False"))
+            {
+                DeleteRow("Cargo", cargoId, cargoDatabase);
+            }
+            else if (RespMan.isAdmin.Equals("True"))
+            {
+                DeleteRow("Cargo", cargoId, cargoDatabase);
+            }
+            else
+                MessageBox.Show("This order's already in progress!");
+            
         }
 
         private void AddDestenation_Click(object sender, EventArgs e)
@@ -433,7 +443,7 @@ namespace lab1_prtech
             Database db = new Database();
             db.open();
             SqlCommand command1 = new SqlCommand($"SELECT Track FROM Destenation WHERE RespDriver IS NULL ", db.getCon());
-            SqlCommand command2 = new SqlCommand($"SELECT CargoName FROM Cargo  ", db.getCon());
+            SqlCommand command2 = new SqlCommand($"SELECT CargoName FROM Cargo WHERE RespDriver IS NULL ", db.getCon());
             SqlDataAdapter sqlDataAdapter1 = new SqlDataAdapter(command1);
             SqlDataAdapter sqlDataAdapter2 = new SqlDataAdapter(command2);
             DataTable dataTable1 = new DataTable();
@@ -555,6 +565,16 @@ namespace lab1_prtech
             }
             else
                 MessageBox.Show("Choose filter condition!");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Update("Destenation",destinationDatabase);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Update("Cargo", cargoDatabase);
         }
     }
 }
