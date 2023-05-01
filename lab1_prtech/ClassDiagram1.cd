@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="lab1_prtech.Cargo">
+    <Position X="8.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>model\Cargo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lab1_prtech.Destination">
+    <Position X="3.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>model\Destination.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="RespMan" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="lab1_prtech.Driver">
+    <Position X="6" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>model\Driver.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lab1_prtech.Manager">
+    <Position X="11" Y="2" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgBAAAAAAAAAEA=</HashCode>
+      <FileName>model\Manager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Cargo" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="lab1_prtech.User" Collapsed="true">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAAAAAQABAAAAAACAAAQAAAAAAA=</HashCode>
+      <FileName>model\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lab1_prtech.Truck">
+    <Position X="1.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAIAAAAAAEAAAAAFAghAAAAAAAA=</HashCode>
+      <FileName>model\Truck.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Destination" />
+      <Property Name="RespManager" />
+      <Property Name="RespDriver" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="lab1_prtech.Database">
+    <Position X="8.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACAAAAAAAAAAEBAAAIAAAAAAAAA=</HashCode>
+      <FileName>model\Database.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="sqlConnection" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="System.Data.SqlClient.SqlConnection" Collapsed="true">
+    <Position X="4" Y="6.75" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="lab1_prtech.AddDriver">
+    <Position X="7" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAIAAAIAACAAABAAAACAQAACAAAAAAAAAADAAAAAAAA=</HashCode>
+      <FileName>gui\AddDriver.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lab1_prtech.Chat">
+    <Position X="5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAIACAAQBAAAACAAAACAAAAAAAAEAAAIAAAABI=</HashCode>
+      <FileName>gui\Chat.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lab1_prtech.DriverForm">
+    <Position X="9" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACACQBAAAAiAAABCAAAYAAAiAGBIAAAABAI=</HashCode>
+      <FileName>gui\DriverForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lab1_prtech.DrivReg">
+    <Position X="10.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAACAQBBIABACAACACCAgAAAAAQABAAEAAAAA=</HashCode>
+      <FileName>gui\DrivReg.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lab1_prtech.LogIn">
+    <Position X="12.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAACIAABBABACAAAACAAAUAECAESAABUAAAAA=</HashCode>
+      <FileName>gui\LogIn.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lab1_prtech.ManagerForm" Collapsed="true">
+    <Position X="14.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>/04uAEqQDCijSBAWORjREEwSAIm+iEBjDnjQTCgVAnA=</HashCode>
+      <FileName>gui\ManagerForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lab1_prtech.ManagerReg">
+    <Position X="16" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAACAQBBAAAACACAAKAEQAAAgAAgAAAAAAAAA=</HashCode>
+      <FileName>gui\ManagerReg.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Windows.Forms.Form" Collapsed="true">
+    <Position X="10.5" Y="8" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="lab1_prtech.AddStop">
+    <Position X="17.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAKAAABAABADAAAACAAAICAAAEAAAAAAAAAA=</HashCode>
+      <FileName>gui\AddStop.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

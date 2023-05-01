@@ -21,9 +21,7 @@ namespace lab1_prtech
         string truckDictionaryKey;
         string destDictionaryKey;
         Manager RespMan;
-        Dictionary<string,Destination> destination = new Dictionary<string, Destination>();
-        Dictionary<string, Cargo> cargo = new Dictionary<string, Cargo>();
-        Dictionary<string, Truck> truck = new Dictionary<string, Truck>();
+        
 
         public ManagerForm(Manager man)
         {
@@ -239,11 +237,9 @@ namespace lab1_prtech
             {
                 Database db = new Database();
                 string query1 = $"INSERT INTO Cargo(CargoName,Weight,Products)VALUES('{cargoNameLine.Text}','{cargoWeightLine.Text}','{cargoProductLine.Text}')";
-                DoAction(query1, db);
-                //cargo.Add(cargoNameLine.Text,new Cargo() {CargoName = cargoNameLine.Text,Weight = cargoWeightLine.Text,Products = cargoProductLine.Text });
+                DoAction(query1, db);     
 ;               MessageBox.Show("Added");
                 Update("Cargo", cargoDatabase);
-
             }
             else
             {
@@ -282,8 +278,7 @@ namespace lab1_prtech
                 Database db = new Database();
                 string query1 = $"UPDATE Cargo SET Weight = '{cargoWeightLine.Text}',Products = '{cargoProductLine.Text}' WHERE Id = '{cargoId}'";               
                 DoAction(query1, db);
-               // cargo[cargoDictionaryKey] = new Cargo() { CargoName = cargoNameLine.Text, Weight = cargoWeightLine.Text, Products = cargoProductLine.Text };
-
+               
                 MessageBox.Show("Edited!");
                 Update("Cargo", cargoDatabase);                
             }

@@ -101,10 +101,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddStop.cs">
+    <Compile Include="gui\AddStop.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddStop.Designer.cs">
+    <Compile Include="gui\AddStop.Designer.cs">
       <DependentUpon>AddStop.cs</DependentUpon>
     </Compile>
     <Compile Include="gui\Chat.cs">
@@ -145,10 +145,8 @@
       <DependentUpon>ManagerReg.cs</DependentUpon>
     </Compile>
     <Compile Include="model\Cargo.cs" />
-    <Compile Include="model\Comment.cs" />
     <Compile Include="model\Destination.cs" />
     <Compile Include="model\Driver.cs" />
-    <Compile Include="model\Forum.cs" />
     <Compile Include="model\Manager.cs" />
     <Compile Include="model\Truck.cs" />
     <Compile Include="model\User.cs" />
@@ -165,7 +163,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>WorkersDataSet.xsd</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddStop.resx">
+    <EmbeddedResource Include="gui\AddStop.resx">
       <DependentUpon>AddStop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gui\Chat.resx">
@@ -198,6 +196,7 @@
     <EmbeddedResource Include="gui\DriverForm.resx">
       <DependentUpon>DriverForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
